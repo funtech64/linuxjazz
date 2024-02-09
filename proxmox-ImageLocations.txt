@@ -1,0 +1,15 @@
+
+/var/lib/vz/template/iso
+
+cp /outside_files(or /mnt/outside)/* /var/lib/vz/template/iso
+
+--older--
+root@Leah:/var/lib/vz# ls
+dump  images  template
+
+root@Leah:/var/lib/vz/template# ls
+cache  iso  qemu
+
+Location of more templates:
+
+https://wiki.openvz.org/Download/template/precreated
