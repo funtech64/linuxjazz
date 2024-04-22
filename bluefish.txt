@@ -1,0 +1,2 @@
+sudo apt-get install bluefish bluefish-dbg php5-cli tidy weblint-perl weblint
+ winefish texlive-base luatex

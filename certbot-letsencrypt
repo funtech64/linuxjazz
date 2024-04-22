@@ -1,0 +1,231 @@
+Third party repositories
+
+Let’s Encrypt official packages require to use unofficial/third party repositories to have recent and supported version of ACME libraries. Packages provided by standard Debian or Ubuntu repositories are quite old and not compatible with cozy-coclyco.
+
+    For Debian/Raspbian, you need to enable backports repository.
+    For Ubuntu, you need to activate a third party ppa repository.
+
+Refer to the certbot documentation to activate needed repositories. (You don’t need to install packages like certbot or python-certbot-xxx, only to activate repositories.)
+
+CERTBOT AND LET'S ENCRYPT
+
+
+https://certbot.eff.org/lets-encrypt/ubuntuxenial-nginx#using
+
+Nginx on Ubuntu 16.04 (xenial)
+Automated
+Advanced
+Note:
+
+Certbot is meant to be run on the server where your website is hosted. If you don't have administrative shell access to your webserver or you're not familiar with command line server administration, you should check if your hosting provider has built-in Let's Encrypt support by contacting them or checking this list of supporting providers.
+Install
+
+On Ubuntu systems, the Certbot team maintains a PPA. You can add it to your list of repositories and install Certbot by running the following commands.
+
+$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository universe
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+$ sudo apt-get install python-certbot-nginx 
+
+Certbot's DNS plugins are also available for your system which can be used to automate obtaining a wildcard certificate from Let's Encrypt's ACMEv2 server. To use one of these plugins, you must have configured DNS for the domain you want to obtain a certificate for with a DNS provider that Certbot has a plugin for. A list of these plugins and more information about using them can be found here. To install one of these plugins, run the installation command above but replace python-certbot-nginx with the name of the DNS plugin you want to install.
+Get Started
+
+Certbot has an Nginx plugin, which is supported on many platforms, and automates certificate installation.
+
+$ sudo certbot --nginx
+
+Running this command will get a certificate for you and have Certbot edit your Nginx configuration automatically to serve it. If you're feeling more conservative and would like to make the changes to your Nginx configuration by hand, you can use the certonly subcommand:
+
+$ sudo certbot --nginx certonly
+
+If you want to obtain a wildcard certificate using Let's Encrypt's new ACMEv2 server, you'll also need to use one of Certbot's DNS plugins. To do this, make sure the plugin for your DNS provider is installed using the instructions above and run a command like the following:
+
+$ sudo certbot -a dns-plugin -i nginx -d "*.example.com" -d example.com --server https://acme-v02.api.letsencrypt.org/directory
+
+You'll need to replace dns-plugin with the name of the DNS plugin you want to use. You may also need to provide additional flags such as the path your API credentials as described in the documentation for the DNS plugin linked above.
+To learn more about how to use Certbot read our documentation.
+
+Automating renewal
+
+The Certbot packages on your system come with a cron job that will renew your certificates automatically before they expire. Since Let's Encrypt certificates last for 90 days, it's highly advisable to take advantage of this feature. You can test automatic renewal for your certificates by running this command:
+
+$ sudo certbot renew --dry-run
+
+More detailed information and options about renewal can be found in the full documentation.
+
+https://certbot.eff.org/docs/
+https://certbot.eff.org/support/
+https://github.com/certbot/certbot
+
+RESUMING COZY
+
+
+You may change your APT preferences to allow APT to install from backports/ppa by default instead of from official repositories. For example:
+
+echo "Package: python3-acme
+Pin: release n=stretch-backports
+Pin-Priority: 510" > /etc/apt/preferences.d/cozy
+
+Cozy repositories
+
+First, install the packages required to install cozy
+
+apt install ca-certificates apt-transport-https curl
+
+Then, fetch the GPG Cozy signing key:
+
+-----------------------THIS ONE-----------------------------------------------------
+curl https://apt.cozy.io/cozy.gpg | \
+    apt-key --keyring /etc/apt/trusted.gpg.d/cozy.gpg add -
+
+-------------------------------------------------------------------------------------
+curl https://apt.cozy.io/nightly/cozy.gpg | \
+    apt-key --keyring /etc/apt/trusted.gpg.d/cozy.gpg add -
+
+Finally, setup your repository. Select the channel that best fit your needs:
+
+For now, we recommend to use testing repositories, or nightly/unstable channels. stable packages are quite old and currently provide deprecated and unsecured CouchDB version (2.0.x). Adapt your sources.list accordingly.
+
+Supported repositories are:
+
+    Debian Stretch (9.x)
+        deb https://apt.cozy.io/debian/ stretch stable
+        deb https://apt.cozy.io/debian/ stretch testing
+        deb https://apt.cozy.io/nightly/debian/ stretch unstable
+    Ubuntu Xenial (16.04 LTS)
+        deb https://apt.cozy.io/ubuntu/ xenial stable
+        deb https://apt.cozy.io/ubuntu/ xenial testing
+        deb https://apt.cozy.io/nightly/ubuntu/ xenial unstable
+    Raspbian Stretch (9.x)
+        deb https://apt.cozy.io/raspbian/ stretch stable
+        deb https://apt.cozy.io/raspbian/ stretch testing
+        deb https://apt.cozy.io/nightly/raspbian/ stretch unstable
+
+----------------------------------------------------
+
+# echo "deb https://apt.cozy.io/debian/ xenial stable" > /etc/apt/sources.list.d/cozy.list
+
+-----------------------------------------------------
+
+If you want to use unstable/nightly builds, you have to accept another key (weaker and passwordless on our side because of unattended automated builds)
+
+curl https://apt.cozy.io/nightly/cozy.gpg | \
+    apt-key --keyring /etc/apt/trusted.gpg.d/cozy.gpg add -
+
+Setup
+
+For the rest of this document, we assume you install components one by one to allow intermediate verification
+
+For a full local environment (couchdb + nginx + cozy), just install the cozy package which can install all needed packages in one shot.
+CouchDB
+
+apt install cozy-couchdb
+
+Install CouchDB in standalone mode
+
+Configure CouchDB to listen on 127.0.0.1
+
+Pick an administrator password (This password is used by shell scripts, so currently avoid to use one with simple or double quotes or others shell meaningfull symbols. We advice you to choose one with only alphanumeric digits to avoid troubles.)
+
+At this point, you must have a working CouchDB instance
+
+curl http://localhost:5984/
+{"couchdb":"Welcome","version":"2.1.0","features":["scheduler"],"vendor":{"name":"The Apache Software Foundation"}}
+
+If you want to use unstable/nightly builds, you might get another version of the database.
+Cozy stack
+
+apt install cozy-stack
+
+Cozy need to create a CouchDB administrator and so to connect as admin to the CouchDB. Fill those mandatory parameters to allow this creation:
+
+    Address: by default, it’s localhost:5984
+    Node name: by default, it’s couchdb@localhost
+    Admin user: by default, it’s admin
+    Admin password: put the one you choose during CouchDB setup
+    Cozy user: by default, it’s cozy
+    Cozy password: pick a password
+
+(Those passwords are used by shell scripts, so currently avoid to use ones with simple or double quotes or others shell meaningfull symbols. We advice you to choose ones with only alphanumeric digits to avoid troubles.)
+
+For stack management (create instances, install applications…), Cozy need an administrator password. So pick a new one. When invoking cozy-stack (or cozy-coclyco which use it under the hood), you need to set the COZY_ADMIN_PASSWORD environment variable with this password. You can put it on your .bashrc for simplier life if you want. If you don’t, cozy-stack will simply ask for it.
+
+At this point, you must have a working Cozy stack, depending on the branch you’ve chosen you can get a different version displayed.
+
+curl http://localhost:8080/version
+{"build_mode":"production","build_time":"2017-09-28T10:26:03Z","runtime_version":"go1.8.1","version":"0.1.0"}#
+
+If you want to use konnectors, you need to initialize the NodeJS chroot
+
+(Currently this script only works for Debian and will be adapted for Ubuntu and Raspbian soon)
+
+/usr/share/cozy/konnector-create-chroot.sh
+
+You also need to enable user namespaces:
+
+sysctl -w kernel.unprivileged_userns_clone=1
+
+If you use a self-signed certificate or a not official certificate authority, you need to deploy the corresponding root certificate in /usr/share/cozy/chroot/etc/ssl/certs/custom.crt. For example, if you use Let’s Encrypt staging environment for testing purpose :
+
+wget -q https://letsencrypt.org/certs/fakelerootx1.pem \
+    -O /usr/share/cozy/chroot/etc/ssl/certs/custom.crt
+
+Finally
+
+apt install cozy
+
+Cozy instance setup
+DNS
+
+Cozy relies on sub-domains for each applications you installed on your instance. For an instance cozy.example.org, <app>.cozy.example.org must be available too. Currently, you need at least:
+
+    onboarding.cozy.example.org
+    settings.cozy.example.org
+    drive.cozy.example.org
+    photos.cozy.example.org
+    home.cozy.example.org
+    store.cozy.example.org
+    <app>.cozy.example.org for each application you use
+
+Follow your usual way to create those entries on your domain zone. The simpliest way to handle this is to use a wildcard entry if supported by your domain hosting.
+
+cozy 1h IN A x.x.x.x
+*.cozy 1h IN CNAME cozy
+
+ACME (Let’s Encrypt)
+
+Like DNS, each application will use a different sub-domain and so request a certificate which include all needed domains.
+
+cozy-coclyco use Let’s Encrypt and it ACME protocol to prove your ownership over the domain you try to issue a certificate. This protocol requires your reverse proxy to be able to serve http://<app>.cozy.example.org/.well-known/acme-challenge/ requests correctly.
+
+The simplest way to achieve this is to configure your reverse proxy with a generic rule to forward any /.well-known/acme-challenge/ request to the corresponding /etc
+/ssl/private/acme-challenge/ folder. For nginx, this can be done with
+
+/etc/nginx/sites-available/default
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    server_name _;
+
+    location /.well-known/acme-challenge/ {
+        alias /etc/ssl/private/acme-challenge/;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+apt install ssl-cert
+adduser www-data ssl-cert
+systemctl restart nginx
+
+Create instances
+
+Once you’ve got a stack, your DNS and your reverse proxy correctly configured, you can create instances on your Cozy stack. Remember to set the COZY_ADMIN_PASSWORD environment variable.
+
+

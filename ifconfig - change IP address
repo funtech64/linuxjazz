@@ -1,0 +1,31 @@
+Change IP on Server
+
+8-6-18 - container didn't have this setup for it's sytem but the Proxmox server itself seems to. 
+
+Will finally be able to fix iP to .7 but Cisco switch takes priority...
+
+-----------
+https://linuxconfig.org/how-to-setup-a-static-ip-address-on-debian-linux
+------------
+
+
+apt install net-tools
+
+nano /etc/network/interfaces
+
+Tried changin interfaces.d and it was not part of the container software.
+
+Ran changes to # nano /etc/network/interfaces but this didn't work.
+
+
+# cat /etc/network/interfaces.d/eth0
+iface eth0 inet static
+      address 10.1.1.125
+      netmask 255.0.0.0
+      gateway 10.1.1.1
+
+
+https://linuxconfig.org/how-to-setup-a-static-ip-address-on-debian-linux
+
+Perhaps I'm lazy as it rolled back to DHCP and looked to the router and it took the new IP that way instead of my changes working.
+

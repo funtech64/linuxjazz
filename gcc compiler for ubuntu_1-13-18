@@ -1,0 +1,9 @@
+Can I use a C/C++ compiler
+
+Ubuntu provides the standard Gnu Compiler Collection in the repositories.
+
+You can install the Gnu C Compiler gcc as well as the Gnu C++ compiler g++ with the following command:
+
+sudo apt-get install gcc g++
+
+You'll probably also want to install libc6-dev (which includes the C standard library) and libstdc++6-4.5-dev (which includes the standard C++ libraries). 

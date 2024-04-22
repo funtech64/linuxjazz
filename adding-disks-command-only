@@ -1,0 +1,6 @@
+lsblk - see drives
+
+cfdisk
+and/or cfdisk /dev/sda
+
+# mkfs.ext4 /dev/sdb1        <-not needed for Proxmox

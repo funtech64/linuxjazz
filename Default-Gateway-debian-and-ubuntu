@@ -1,0 +1,10 @@
+Default-Gateway-debian-and-ubuntu
+
+Debian / Ubuntu Linux Setting a Default Gateway
+ip command to set a default router to 192.168.1.254. Login as the root and type: # ip route add default via 192.168.1.254. ...
+route command to set a default router to 192.168.1.254. Login as the root and type: ...
+Save routing information to a configuration file /etc/network/interfaces. Open /etc/network/interfaces file.
+Oct 18, 2008
+
+sort of like a cisco router and "IP Suite"
+https://www.cyberciti.biz/faq/howto-debian-ubutnu-set-default-gateway-ipaddress/

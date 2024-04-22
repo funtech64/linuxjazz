@@ -1,0 +1,12 @@
+$ dropbox exclude add /Home/jollx/Dropbox/Park-Jolly
+--------------------------------------------------------
+
+It would seem that the /Home/jollx is missed on commands and the system does not have a failure notice on some distros.
+
+$ dropbox exclude list
+Excluded: 
+Dropbox/camera
+Dropbox/park-jolly
+
+This is the only way of seeing if the list has worked.
+The top line is the perfect line of code for how to run this.

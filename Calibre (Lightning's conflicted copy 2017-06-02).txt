@@ -1,0 +1,24 @@
+$ sudo apt-get install calibre python-pygments python-webob calibre-binckages   javascript-common fonts-stix fonts-mathjax-extras libjs-mathjax-doc python-apsw-doc python-markdown-doc ttf-bitstream-vera python-paste python-webob-doc apache2 lighttpd httpd -y --install-recommends
+
+--------------------------------
+Suggested packages:
+  apache2 lighttpd httpd
+
+httpd stopped and demanded I pick the correct package
+
+ * Starting web server apache2                                                  AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+ * 
+
+4/8/17
+
+light httpd worked... (hedgewars)
+---------------------------------
+4/30/17 Thunder:
+
+javascript-common fonts-stix fonts-mathjax-extras libjs-mathjax-doc
+  python-apsw-doc python-markdown-doc ttf-bitstream-vera python-paste
+  python-webob-doc 
+
+lighttpd
+
+spawn-fcgi rrdtool apache2-utils

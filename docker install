@@ -1,0 +1,20 @@
+Ubuntu:
+
+sudo snap install docker
+
+All OS
+
+wget -qO- https://get.docker.com | sh
+--->somehow this didn't work and the teacher is lame. I went to docker's support site and got the direct instructions here:
+
+https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+https://docs.docker.com/engine/install/ubuntu/
+
+----
+throwing logic out of window and long long step install, go to docker.
+
+
+
+2) sudo usermod -aG docker jollx
+
+

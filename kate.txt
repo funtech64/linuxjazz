@@ -1,0 +1,3 @@
+sudo apt-get install kate kdelibs5-data khelpcenter4 konsole hspell kdelibs5-plugins libqca2-plugin-cyrus-sasl libqca2-plugin-gnupg libqca2-plugin-ossl kde-runtime phonon-backend-vlc phonon4qt5-backend-gstreamer
+icoutils kubuntu-debug-installer icoutils kubuntu-debug-installer libterm-readline-gnu-perl libterm-readline-perl-perl -y
+

@@ -1,0 +1,23 @@
+
+
+https://www.maketecheasier.com/download-play-store-apps-ubuntu/
+
+
+Note: As of now, this tutorial is only applicable to Ubuntu 14.04 and 14.10. Moreover, if you are using Ubuntu 14.04, download and install python-ndg-httpsclient dependency from here.
+
+(complete disaster)
+
+http://codingteam.net/project/googleplaydownloader/download // Site is down
+
+
+sudo dpkg -i googleplaydownloader_1.4-1_all.deb
+sudo apt-get install -f
+
+
+------
+googleplaydownloader_1.4-1_all.deb is BLOCKED
+-----
+
+python-ndg-httpsclient won't work
+
+http://askubuntu.com/questions/595598/dependency-problem-while-downloading-the-google-play-dwonloader

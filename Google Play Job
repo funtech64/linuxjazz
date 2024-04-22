@@ -1,0 +1,201 @@
+http://chrisstrelioff.ws/sandbox/2014/06/04/install_and_setup_python_and_packages_on_ubuntu_14_04.html
+
+Stopped at line "Pip"
+
+Because we have chosen local installation, the path ~/.local/bin has to be added to our path. To do that, add the following to the end of your ~/.bashrc file:
+
+# include .local/bin for local python scripts
+export PATH=~/.local/bin:$PATH
+
+(where I highlighted and had to go...
+
+-------
+BASH
+-------
+
+chip@dale ~ $ python3 --version
+Python 3.4.3
+chip@dale ~ $ sudo apt-get install python3
+[sudo] password for chip: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+python3 is already the newest version.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+chip@dale ~ $ sudo apt-get install packagename
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+E: Unable to locate package packagename
+chip@dale ~ $ su 
+Password: 
+dale chip # python setup.py install
+python: can't open file 'setup.py': [Errno 2] No such file or directory
+dale chip # pip install --user pyopenssl ndg-httpsclient pyasn1
+The program 'pip' is currently not installed. You can install it by typing:
+apt-get install python-pip
+dale chip # apt-get install python-pip
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  python-chardet-whl python-colorama python-colorama-whl python-distlib
+  python-distlib-whl python-html5lib python-html5lib-whl python-pip-whl
+  python-requests-whl python-setuptools python-setuptools-whl python-six-whl
+  python-urllib3-whl
+Suggested packages:
+  python-genshi
+Recommended packages:
+  build-essential python-dev-all python-wheel
+The following NEW packages will be installed:
+  python-chardet-whl python-colorama python-colorama-whl python-distlib
+  python-distlib-whl python-html5lib python-html5lib-whl python-pip
+  python-pip-whl python-requests-whl python-setuptools python-setuptools-whl
+  python-six-whl python-urllib3-whl
+0 upgraded, 14 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,637 kB of archives.
+After this operation, 3,955 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-chardet-whl all 2.2.1-2~ubuntu1 [170 kB]
+Get:2 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-colorama all 0.2.5-0.1ubuntu2 [18.4 kB]
+Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-colorama-whl all 0.2.5-0.1ubuntu2 [18.2 kB]
+Get:4 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-distlib all 0.1.8-1ubuntu1 [113 kB]
+Get:5 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-distlib-whl all 0.1.8-1ubuntu1 [140 kB]
+Get:6 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-html5lib all 0.999-3~ubuntu1 [83.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-html5lib-whl all 0.999-3~ubuntu1 [109 kB]
+Get:8 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-six-whl all 1.5.2-1ubuntu1 [10.5 kB]
+Get:9 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-urllib3-whl all 1.7.1-1ubuntu4 [64.0 kB]
+Get:10 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-requests-whl all 2.2.1-1ubuntu0.3 [227 kB]
+Get:11 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-setuptools-whl all 3.3-1ubuntu2 [244 kB]
+Get:12 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-pip-whl all 1.5.4-1ubuntu4 [111 kB]
+Get:13 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-setuptools all 3.3-1ubuntu2 [230 kB]
+Get:14 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-pip all 1.5.4-1ubuntu4 [97.3 kB]
+Fetched 1,637 kB in 6s (260 kB/s)                                              
+Selecting previously unselected package python-chardet-whl.
+(Reading database ... 172168 files and directories currently installed.)
+Preparing to unpack .../python-chardet-whl_2.2.1-2~ubuntu1_all.deb ...
+Unpacking python-chardet-whl (2.2.1-2~ubuntu1) ...
+Selecting previously unselected package python-colorama.
+Preparing to unpack .../python-colorama_0.2.5-0.1ubuntu2_all.deb ...
+Unpacking python-colorama (0.2.5-0.1ubuntu2) ...
+Selecting previously unselected package python-colorama-whl.
+Preparing to unpack .../python-colorama-whl_0.2.5-0.1ubuntu2_all.deb ...
+Unpacking python-colorama-whl (0.2.5-0.1ubuntu2) ...
+Selecting previously unselected package python-distlib.
+Preparing to unpack .../python-distlib_0.1.8-1ubuntu1_all.deb ...
+Unpacking python-distlib (0.1.8-1ubuntu1) ...
+Selecting previously unselected package python-distlib-whl.
+Preparing to unpack .../python-distlib-whl_0.1.8-1ubuntu1_all.deb ...
+Unpacking python-distlib-whl (0.1.8-1ubuntu1) ...
+Selecting previously unselected package python-html5lib.
+Preparing to unpack .../python-html5lib_0.999-3~ubuntu1_all.deb ...
+Unpacking python-html5lib (0.999-3~ubuntu1) ...
+Selecting previously unselected package python-html5lib-whl.
+Preparing to unpack .../python-html5lib-whl_0.999-3~ubuntu1_all.deb ...
+Unpacking python-html5lib-whl (0.999-3~ubuntu1) ...
+Selecting previously unselected package python-six-whl.
+Preparing to unpack .../python-six-whl_1.5.2-1ubuntu1_all.deb ...
+Unpacking python-six-whl (1.5.2-1ubuntu1) ...
+Selecting previously unselected package python-urllib3-whl.
+Preparing to unpack .../python-urllib3-whl_1.7.1-1ubuntu4_all.deb ...
+Unpacking python-urllib3-whl (1.7.1-1ubuntu4) ...
+Selecting previously unselected package python-requests-whl.
+Preparing to unpack .../python-requests-whl_2.2.1-1ubuntu0.3_all.deb ...
+Unpacking python-requests-whl (2.2.1-1ubuntu0.3) ...
+Selecting previously unselected package python-setuptools-whl.
+Preparing to unpack .../python-setuptools-whl_3.3-1ubuntu2_all.deb ...
+Unpacking python-setuptools-whl (3.3-1ubuntu2) ...
+Selecting previously unselected package python-pip-whl.
+Preparing to unpack .../python-pip-whl_1.5.4-1ubuntu4_all.deb ...
+Unpacking python-pip-whl (1.5.4-1ubuntu4) ...
+Selecting previously unselected package python-setuptools.
+Preparing to unpack .../python-setuptools_3.3-1ubuntu2_all.deb ...
+Unpacking python-setuptools (3.3-1ubuntu2) ...
+Selecting previously unselected package python-pip.
+Preparing to unpack .../python-pip_1.5.4-1ubuntu4_all.deb ...
+Unpacking python-pip (1.5.4-1ubuntu4) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up python-chardet-whl (2.2.1-2~ubuntu1) ...
+Setting up python-colorama (0.2.5-0.1ubuntu2) ...
+Setting up python-colorama-whl (0.2.5-0.1ubuntu2) ...
+Setting up python-distlib (0.1.8-1ubuntu1) ...
+Setting up python-distlib-whl (0.1.8-1ubuntu1) ...
+Setting up python-html5lib (0.999-3~ubuntu1) ...
+Setting up python-html5lib-whl (0.999-3~ubuntu1) ...
+Setting up python-six-whl (1.5.2-1ubuntu1) ...
+Setting up python-urllib3-whl (1.7.1-1ubuntu4) ...
+Setting up python-requests-whl (2.2.1-1ubuntu0.3) ...
+Setting up python-setuptools-whl (3.3-1ubuntu2) ...
+Setting up python-pip-whl (1.5.4-1ubuntu4) ...
+Setting up python-setuptools (3.3-1ubuntu2) ...
+Setting up python-pip (1.5.4-1ubuntu4) ...
+dale chip # pip install --user pyopenssl ndg-httpsclient pyasn1
+Requirement already satisfied (use --upgrade to upgrade): pyopenssl in /usr/lib/python2.7/dist-packages
+Downloading/unpacking ndg-httpsclient
+  Downloading ndg_httpsclient-0.4.2.tar.gz
+  Running setup.py (path:/tmp/pip_build_root/ndg-httpsclient/setup.py) egg_info for package ndg-httpsclient
+    
+Downloading/unpacking pyasn1
+  Downloading pyasn1-0.1.9-py2.py3-none-any.whl
+Installing collected packages: ndg-httpsclient, pyasn1
+  Running setup.py install for ndg-httpsclient
+    Skipping installation of /root/.local/lib/python2.7/site-packages/ndg/__init__.py (namespace package)
+    
+    Installing /root/.local/lib/python2.7/site-packages/ndg_httpsclient-0.4.2-nspkg.pth
+    Installing ndg_httpclient script to /root/.local/bin
+Successfully installed ndg-httpsclient pyasn1
+Cleaning up...
+dale chip # cd Downloads
+dale Downloads # url -O https://bootstrap.pypa.io/get-pip.py
+No command 'url' found, did you mean:
+ Command 'uil' from package 'uil' (universe)
+ Command 'rl' from package 'randomize-lines' (universe)
+ Command 'curl' from package 'curl' (main)
+ Command 'ur' from package 'libur-perl' (universe)
+ Command 'ul' from package 'bsdmainutils' (main)
+ Command 'erl' from package 'erlang-base-hipe' (universe)
+ Command 'erl' from package 'erlang-base' (main)
+ Command 'zurl' from package 'zurl' (universe)
+url: command not found
+dale Downloads # curl -O https://bootstrap.pypa.io/get-pip.py
+The program 'curl' is currently not installed. You can install it by typing:
+apt-get install curl
+dale Downloads # apt-get install curl
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  curl
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 123 kB of archives.
+After this operation, 314 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main curl amd64 7.35.0-1ubuntu2.9 [123 kB]
+Fetched 123 kB in 0s (184 kB/s)
+Selecting previously unselected package curl.
+(Reading database ... 172477 files and directories currently installed.)
+Preparing to unpack .../curl_7.35.0-1ubuntu2.9_amd64.deb ...
+Unpacking curl (7.35.0-1ubuntu2.9) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up curl (7.35.0-1ubuntu2.9) ...
+dale Downloads # curl -O https://bootstrap.pypa.io/get-pip.py
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 1488k  100 1488k    0     0  2742k      0 --:--:-- --:--:-- --:--:-- 2747k
+dale Downloads # python get-pip.py --user
+Collecting pip
+  Downloading pip-8.1.2-py2.py3-none-any.whl (1.2MB)
+    100% |████████████████████████████████| 1.2MB 752kB/s 
+Collecting wheel
+  Downloading wheel-0.29.0-py2.py3-none-any.whl (66kB)
+    100% |████████████████████████████████| 71kB 4.8MB/s 
+Installing collected packages: pip, wheel
+Successfully installed pip-8.1.2 wheel-0.29.0
+dale Downloads # sudo apt-get install curl
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+curl is already the newest version.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+dale Downloads # include .local/bin for local python scripts
+include: command not found
+

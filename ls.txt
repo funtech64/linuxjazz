@@ -1,0 +1,28 @@
+chip@dale ~ $ ls -l
+total 116
+drwxr-xr-x  2 chip chip  4096 Oct 14 02:26 Desktop
+drwxr-xr-x  8 chip chip  4096 Sep 29 10:54 Documents
+drwxr-xr-x  2 chip chip  4096 Oct 14 02:16 Downloads
+drwx------ 15 chip chip  4096 Oct 13 13:32 Dropbox
+drwxr-xr-x  6 chip chip  4096 Sep 29 12:32 GNS3
+-rw-r--r--  1 root root 58118 Sep 29 12:27 index.html
+drwxr-xr-x  2 chip chip  4096 Sep 29 10:51 Music
+drwxr-xr-x 12 chip chip 12288 Oct 14 00:21 Pictures
+drwxr-xr-x  2 chip chip  4096 Sep 29 10:51 Public
+drwxr-xr-x  2 chip chip  4096 Sep 29 10:51 Templates
+drwxr-xr-x  2 chip chip  4096 Sep 29 10:51 Videos
+drwxr-xr-x  2 chip chip  4096 Oct 14 03:09 vmware
+chip@dale ~ $ ls -1
+Desktop
+Documents
+Downloads
+Dropbox
+GNS3
+index.html
+Music
+Pictures
+Public
+Templates
+Videos
+vmware
+

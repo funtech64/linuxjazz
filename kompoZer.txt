@@ -1,0 +1,47 @@
+How to install Kompozer on Ubuntu 14.04 LTS or Linux Mint 17
+« Ohjeita | Kirjoitettu 22.11.2014
+
+
+For 64-bit, run the following commands:
+
+1. Download kompozer *.deb
+
+wget https://launchpad.net/ubuntu/+archive/primary/+files/kompozer-data_0.8~b3.dfsg.1-0.1ubuntu2_all.deb
+
+wget https://launchpad.net/ubuntu/+archive/primary/+files/kompozer-dev_0.8~b3.dfsg.1-0.1ubuntu2_all.deb
+
+wget https://launchpad.net/ubuntu/+archive/primary/+files/kompozer_0.8~b3.dfsg.1-0.1ubuntu2_amd64.deb
+
+2. install kompozer
+
+sudo dpkg -i kompozer-data_0.8~b3.dfsg.1-0.1ubuntu2_all.deb kompozer-dev_0.8~b3.dfsg.1-0.1ubuntu2_all.deb kompozer_0.8~b3.dfsg.1-0.1ubuntu2_amd64.deb
+
+3. install depencies
+
+sudo apt-get install -f
+
+Found from http://www.enqlu.com/2014/04/how-to-install-kompozer-on-ubuntu-14-04-lts-or-linux-mint-17.html
+
+
+----------------------------
+
+
+
+
+For 32-bit, run the following commands:
+
+1. Download kompozer *.deb
+
+wget https://launchpad.net/ubuntu/+archive/primary/+files/kompozer-data_0.8~b3.dfsg.1-0.1ubuntu2_all.deb
+
+wget https://launchpad.net/ubuntu/+archive/primary/+files/kompozer-dev_0.8~b3.dfsg.1-0.1ubuntu2_all.deb
+
+wget https://launchpad.net/ubuntu/+archive/primary/+files/kompozer_0.8~b3.dfsg.1-0.1ubuntu2_i386.deb
+
+2. install kompozer
+
+sudo dpkg -i kompozer-data_0.8~b3.dfsg.1-0.1ubuntu2_all.deb kompozer-dev_0.8~b3.dfsg.1-0.1ubuntu2_all.deb kompozer_0.8~b3.dfsg.1-0.1ubuntu2_i386.deb
+
+3. install depencies
+
+sudo apt-get install -f

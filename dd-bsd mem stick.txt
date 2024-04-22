@@ -1,0 +1,7 @@
+sudo dd if=FreeBSD-11.1-RELEASE-i386-memstick.img of=/dev/sdi conv=sync
+
+1290793+0 records in
+1290793+0 records out
+660886016 bytes (661 MB, 630 MiB) copied, 255.869 s, 2.6 MB/s
+
+

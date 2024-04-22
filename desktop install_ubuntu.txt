@@ -1,0 +1,32 @@
+sudo add-apt-repository universe
+then
+sudo apt update
+
+-----
+https://linuxconfig.org/install-gui-on-ubuntu-server-18-04-bionic-beaver
+-----
+
+sudo apt-get install tasksel
+
+$ sudo tasksel install lubuntu-core
+
+
+
+----------------PRE-BIONIC BEAVER 18 ----------------------------
+
+Depending on which desktop you wish to install, you install the the meta-package that installs all the necessary packages. You can use apt-get or aptitude to do this.
+
+sudo apt-get install ubuntu-desktop
+
+installs the Unity desktop
+
+sudo aptitude install kubuntu-desktop
+
+would install the KDE desktop
+
+Other desktop meta-packages are xubuntu-desktop, ubuntu-gnome-desktop, lubuntu-desktop, and edubuntu-desktop .
+
+
+***If you wan to install a graphical desktop manager without some of the desktop addons like Evolution and OpenOffice, but continue to use the server flavor kernel use the following command
+
+sudo aptitude install --without-recommends ubuntu-desktop

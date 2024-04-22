@@ -1,0 +1,6 @@
+apt install apache2 ???????
+
+sudo apt install bluefish csstidy dos2unix php-codesniffer pylint tidy weblint-perl weblint python-tk python-egenix-mxdatetime php-pear pylint-doc pyro python-unittest2 tidy-doc python-tk python-egenix-mxdatetime
+
+python-tk python-egenix-mxdatetime
+

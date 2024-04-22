@@ -1,0 +1,128 @@
+How to install development tools in Linux
+
+https://www.2daygeek.com/install-development-tools-on-ubuntu-debian-arch-linux-mint-fedora-centos-rhel-opensuse/
+
+
+
+by Magesh Maruthamuthu · Last Updated: March 7, 2020
+
+By default Linux system will have required Development Tools & its libraries and doesn’t install all the developer tools such as GNU GCC C/C++ compilers, autoconf, automake, make, etc.,. which are available in the group.
+
+Development Tools & Libraries are required when you installing packages from source, also it’s required for developers to build packages in Linux system. I have seen most of the distribution had install few Development Tools & its Libraries which is not enough to install/build packages from source.
+
+In this tutorial, we are going to show you, how to install development tools group in popular Linux distributions such as RHEL, CentOS, Fedora, openSUSE, Debian, Ubuntu, Mint, Arch Linux, Manjaro, Mageia, etc.
+
+All the core development packages are bundled with a single group package which can be installed by running appropriate command.
+Install Development Tools in RHEL/CentOS
+
+Run the following command to install Development Tools in RHEL/CentOS systems and its clone.
+
+$ sudo yum update
+$ sudo yum groupinstall "Development Tools"
+
+Following Development Tools packages are included in RHEL/CentOS systems.
+
+Group: Development tools
+ Description: A basic development environment.
+ Mandatory Packages:
+   autoconf
+   automake
+   binutils
+   bison
+   flex
+   gcc
+   gcc-c++
+   gettext
+   libtool
+   make
+   patch
+   pkgconfig
+   redhat-rpm-config
+   rpm-build
+ Default Packages:
+   byacc
+   cscope
+   ctags
+   cvs
+   diffstat
+   doxygen
+   elfutils
+   gcc-gfortran
+   git
+   indent
+   intltool
+   patchutils
+   rcs
+   subversion
+   swig
+   systemtap
+ Optional Packages:
+   ElectricFence
+   PyYAML
+   ant
+   babel
+   bzr
+   ccache
+   chrpath
+   clips
+   clips-devel
+   clips-doc
+   clips-emacs
+   clips-xclips
+   clipsmm-devel
+   clipsmm-doc
+   cmake
+   cmucl
+   colordiff
+   .
+   .
+   .
+
+----------------------------------------
+Installing  Development Tools in Fedora
+-----------------------------------------
+
+
+Run the following command to install Development Tools in Fedora system.
+
+    Development Tools : These tools include general development tools such as git and CVS.
+    C Development Tools and Libraries : These tools include core development tools such as automake, gcc and debuggers.
+
+$ sudo dnf update
+$ dnf groupinstall "Development Tools"
+$ dnf groupinstall "C Development Tools and Libraries"
+
+Installing Development Tools in Debian base
+
+Run the following command to install Development Tools in Debian based systems and its derivatives such as Ubuntu, Mint, elementray OS, etc.
+
+$ sudo apt-get update
+$ sudo apt-get install build-essential
+
+------------------------------------------
+Installing Development Tools in Arch Linux
+--------------------------------------------
+
+Run the following command to install Development Tools in Arch Linux based systems and its derivatives such as Manjaro, Antergos, arpitoryos, etc.
+
+$ sudo pacman -Syyu
+$ sudo pacman -S base-devel
+
+----------------------------------------
+Installing Development Tools in openSUSE
+----------------------------------------
+Run the following command to install Development Tools in openSUSE system.
+
+$ sudo zypper update
+$ sudo zypper install -t pattern devel_C_C++
+
+------------------------------------------
+Installing Development Tools in Mageia
+---------------------------------------
+
+Run the following command to install Development Tools in Mageia system.
+
+$ sudo urpmi --auto-update
+$ sudo urpmi development-libs development-tools
+
+

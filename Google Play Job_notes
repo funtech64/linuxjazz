@@ -1,0 +1,18 @@
+HAVEN'T CHECKED ANY OF THE PYTHON!!!
+
+ipython[notebook] was crazy and may not have installed. I later checked 
+pip install --user ipython
+and it seems to be ok.
+
+Pandas required cython
+
+Bottleneck gave wierdo error "traceback" on $ python -c "import bottleneck;print bottleneck.__version__"
+
+------
+Stuck at CMPy
+------
+
+I am not sure how to load github to get CMPy to load!!!!
+Really it's time to learn the freakin github as my computer is getting slowly held back by this..
+
+

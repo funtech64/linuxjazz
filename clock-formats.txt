@@ -1,0 +1,14 @@
+%A, %d %Y %l:%M %p
+
+http://www.foragoodstrftime.com/
+
+Full Month: %A, %d %B %Y %l:%M %p
+
+
+%A - %B %d, %Y %l:%M %p - Long bar
+
+%l:%M %p %a - %b %d, %Y - short bar
+
+%l:%M %p - raspberry pi
+
+%a %b %d -%l:%M %p - Linux Mint 18

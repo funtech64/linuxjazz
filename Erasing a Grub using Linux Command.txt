@@ -1,0 +1,32 @@
+https://linoxide.com/linux-command/commands-wipe-disk-linux/
+
+# dd if=/dev/zero of=/dev/sda2 bs=512 count=1
+
+could do a way higher bps if it's ssd or a SATA3, etc.
+
+OLDER
+
+
+
+Erasing a Grub using Linux Command
+
+Method 3: Use Linux dd command
+Lastly you can use the powerful “dd” comamnd in Linux. For this the best thing to do is to boot from a LiveCD with your hard drive attached and give the following command:
+# dd if=/dev/null of=/dev/sdX bs=446 count=1
+Where
+X = Your hard drive device name
+You can use the following command to find your hard drive letter:
+# fdisk -l
+Output:
+Disk /dev/sda: 750.1 GB, 750155292160 bytes
+255 heads, 63 sectors/track, 91201 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Disk identifier: 0x90ee8262
+
+Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *           1       18237   146488671    7  HPFS/NTFS
+/dev/sda2           18238       67366   394628692+   5  Extended
+/dev/sda5           18238       66880   390724866   83  Linux
+/dev/sda6           66881       67366     3903763+  82  Linux swap / Solaris
+That’s it. Hopefully by using any one of the above 3 methods you should be able to get your Windows booting back.
+Happy GRUB-erasing!

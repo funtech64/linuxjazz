@@ -1,0 +1,148 @@
+Better strait-forward instructions...
+https://help.ubuntu.com/community/BasicChroot
+--------------------------------------------------------------------------
+Creating a chroot
+
+This section provides instructions on creating a basic chroot. For more advanced chroots, see Debootstrap Chroot.
+
+    Install the schroot and debootstrap packages.
+
+    As an administrator (i.e. using sudo), create a new directory for the chroot. In this procedure, the directory /var/chroot will be used. To do this, type sudo mkdir /var/chroot into a command line.
+
+    As an administrator, open /etc/schroot/schroot.conf in a text editor. Type cd /etc/schroot, followed by gksu gedit schroot.conf. This will allow you to edit the file.
+
+    Add the following lines into schroot.conf and then save and close the file. Replace your_username with your username.
+
+
+---------------------------
+/usr/share/debootstrap/scripts
+
+shows the options available. If it isn't there it wont work!!!
+---------------------------
+        [lucid]
+        description=Ubuntu Lucid
+        location=/var/chroot
+        priority=3
+        users=your_username
+        groups=sbuild
+        root-groups=root
+
+    Open a terminal and type:
+
+        sudo debootstrap --variant=buildd --arch i386 lucid /var/chroot/ http://mirror.url.com/ubuntu/
+
+    This will create a basic 'installation' of Ubuntu 10.04 (Lucid Lynx) in the chroot. It may take a while for the packages to be downloaded.
+
+    Note: You can replace lucid with the Ubuntu version of your choice.
+
+    Note: You must change the above mirror.url.com with the URL of a valid archive mirror local to you.
+
+    A basic chroot should now have been created. Type sudo chroot /var/chroot to change to a root shell inside the chroot. 
+
+
+--------------------------------------
+LOL...
+--------------------------------------
+
+http://jblevins.org/log/ubuntu-chroot
+
+Setting Up a 32-bit chroot Environment in Ubuntu
+May 30, 2007
+
+A chroot environment is essentially a complete self-contained Linux installation that is nested within the main system. There are several reasons one might want to do this. It can be used to try out new (or old) Ubuntu or Debian releases, for development or packaging for other releases, or for running software that’s designed for another architecture. You can even have several chroot environments on the same system if you like. The chroot environment has it’s root somewhere in your filesystem, usually under /var/chroot, with its own libraries, system binaries, etc. The chroot command is used to change the root directory to that of the chroot environment so that the rest of the system is hidden.
+
+I am mainly interested in the last of the three usages I mentioned above. Specifically, I need to run i386 programs on my AMD 64 system when there are no native 64-bit versions available. I will outline the steps I took to create a 32-bit chroot environment on Ubuntu Feisty Fawn (7.04). I will make the root directory /var/chroot/feisty_i386, but you can name it whatever you like. These steps should also translate to previous and future releases by simply changing feisty to breezy or warty or whatever comes next (see Releases on the Ubuntu Wiki).
+
+The following instructions assume you are root, hence the # prompt. First, you need to install debootstrap which allows you to install a basic Ubuntu (which based on Debian) system from scratch, without the need for apt or dpkg. Installing from the repository should be fine as long as the chroot environment you wish to belongs to the same release that’s running on the main system. That is, if you want a Feisty i386 chroot environment on a Feisty amd64 system, go ahead and install from the repositories:
+
+# apt-get install debootstrap
+
+If you want a Breezy amd64 chroot on a Feisty amd64 system, you should download an older version of the debootstrap package. See DebootstrapChroot on the Ubuntu Wiki for more details.
+
+You will also need the dchroot package which provides a convenient way to use the various chroot environments you set up. You will need to install the package, make sure that the chroot directory of your choice exists, and configure dchroot:
+
+# apt-get install dchroot
+# mkdir /var/chroot
+
+To configure dchroot, edit the file /etc/dchroot.conf and add the line
+
+feisty_i386 /var/chroot/feisty_i386
+
+making sure to use the appropriate path and label for your system.
+
+The next step is to install the new environment. I want an i386 Feisty environment so I use:
+
+# debootstrap --variant=buildd --arch i386 feisty /var/chroot/feisty_i386 http://archive.ubuntu.com/ubuntu/
+
+Your new system should now be installed. In order to configure it so that it’s usable, and to be able to install packages from the network, do the following:
+
+# cp /etc/resolv.conf /var/chroot/feisty_i386/etc/resolv.conf
+# cp /etc/apt/sources.list /var/chroot/feisty_i386/etc/apt/
+# chroot /var/chroot/feisty_i386/
+# apt-get update
+# apt-get install gnupg locales dialog  # Some fundamental packages
+# apt-get update
+# locale-gen en_US.UTF-8  # Change this to your locale.
+# tzconfig  # Configure your time zone.
+# exit
+
+Note that if you install a different release in the chroot, you should edit your sources.list to point to the correct repositories. You probably also want to install some basic packages like vim so that you can edit any config files you need to. Switching to your new chroot is as easy as running dchroot -d as root (or dchroot -d -c feisty_i386if you have more than one chroot).
+
+The above only works if you are root. You may want to set things up so that you can chroot as a normal user and still have access to your home directory. This requires copying the user and group configuration files from the main system. You can hard link them if they are on the same partition. To copy them over:
+
+# cp /etc/passwd /var/chroot/feisty_i386/etc/
+# sed 's/\([^:]*\):[^:]*:/\1:*:/' /etc/shadow | tee /var/chroot/feisty_i386/etc/shadow
+# cp /etc/group /var/chroot/feisty_i386/etc/
+# cp /etc/hosts /var/chroot/feisty_i386/etc/
+
+The sed line above removes the encrypted passwords from the shadow file. They aren’t needed since no one will be logging in to the chroot environment. This is for security reasons, to prevent the shadow file from being available in two places.
+
+If you would rather hard link the files so they remain synchronized:
+
+# cd /var/chroot/feisty_i386/etc
+# rm passwd shadow group gshadow hosts
+# ln /etc/passwd
+# ln /etc/shadow
+# ln /etc/group
+# ln /etc/gshadow
+# ln /etc/hosts
+
+If you are paranoid about having your shadow file in two places, you can still use the sed line above instead of hard linking the shadow file. Just remember that if you add or remove users, you will need to update the file in the chroot environment as well if you want them to be able to access it.
+
+If you want users to be able to use sudo in the chroot:
+
+# cp /etc/sudoers /var/chroot/feisty_i386/etc/
+# chroot /var/chroot/feisty_i386
+# dpkg-reconfigure passwd
+# passwd &lt;username&gt;
+# apt-get install sudo
+
+Add the following lines to /etc/sudoers (in the chroot):
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+Finally, if you want your home directory and other filesystems to be available in the chroot, edit /etc/fstab (the real one for the main system) and add the following:
+
+/home         /var/chroot/feisty_i386/home        none    bind      0 0
+/tmp          /var/chroot/feisty_i386/tmp         none    bind      0 0
+/media/cdrom  /var/chroot/feisty_i386/media/cdrom none    bind      0 0
+/dev          /var/chroot/feisty_i386/dev         none    bind      0 0 
+proc-chroot   /var/chroot/feisty_i386/proc        proc    defaults  0 0
+devpts-chroot /var/chroot/feisty_i386/dev/pts     devpts  defaults  0 0
+
+Make sure the cdrom mount point exists:
+
+# mkdir /var/chroot/feisty_i386/media/cdrom
+
+then mount all the filesystems:
+
+# mount -a
+
+If you want the prompt to give the chroot name when you are using it, edit /var/chroot/feisty_i386/etc/debian_chroot and add the line
+
+feisty_i386
+
+making sure to change this to whatever you named your chroot.
+
+Now you can use the chroot as a normal user by running dchroot -d, or dchroot -d -c feisty_i386 if you have more than one.

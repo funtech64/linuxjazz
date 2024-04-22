@@ -1,0 +1,205 @@
+
+killall -9
+
+----
+https://www.lifewire.com/how-to-kill-processes-using-linux-4062677
+----
+
+How To Kill Processes Using Linux
+How To Kill Linux Programs
+How To Kill Linux Programs.
+Linux How-Tos
+Linux
+
+    Tips & Tricks
+    Basics
+    Guides & Tutorials
+    Installing & Upgrading
+    Commands
+    Key Concepts
+
+by Gary Newell
+Updated July 14, 2016
+Introduction
+
+As you may have worked out by now, Linux provides a number of different ways of doing the same thing.
+
+For instance I have already produced a guide showing 5 ways to kill a Linux application. This article introduces the 6th way to kill a program and introduces you to the killall command.
+
+Personally I recommend using the kill command over killall as the killall command might have some odd side effects on some systems.
+
+This guide shows you how to use the killall command and the various switches that are available.
+How To Use The killall Command
+
+The killall command kills all the processes by name. That means if you have three versions of the same program running the killall command will kill all three.
+
+For example open a small program such an image viewer. Now open another copy of the same image viewer. For my example I have chosen Xviewer which is a clone of Eye Of Gnome.
+
+Now open a terminal and type in the following command:
+
+    killall <programname>
+
+For example to kill all instances of Xviewer type the following:
+
+    killall xviewer
+
+Both instances of the program you have chosen to kill will now close.
+Kill The Exact Process
+ 
+
+Earlier I mentioned that killall may produce strange results. Well here is one reason why. If you have a command name which is more than 15 characters long then the killall command will only work on the first 15 characters.
+
+If therefore you have 2 programs which share the same first 15 characters both programs will be cancelled even though you only wanted to kill one.
+
+To get around this you can specify the following switch which will only kill files matching the exact name.
+
+    killall -e <programname>
+
+Ignore Case When Killing Programs
+
+To make sure the killall command ignores the case of the program name that you provide use the following command:
+
+    killall -I <programname>
+
+    killall --ignore-case <programname>
+
+Kill All Programs In The Same Group
+
+When you run a command such as the following one it will create two processes:
+
+    ps -ef | less
+
+One command is for the ps -ef part which lists all of the running processes on your system and the output is piped to the less command.
+
+Both programs belong to the same group which is bash.
+
+To kill both programs at once you can run the following command:
+
+    killall -g <groupname>
+
+For example to kill all commands running in a bash shell run the following:
+
+    killall -g bash
+
+ 
+
+Incidentally to list all the running groups run the following command:
+
+    ps -g
+
+Get Confirmation Before Killing Programs
+
+Obviously the killall command is quite a powerful command and you don't want to accidentally kill the wrong processes.
+
+Using the following switch you will be asked whether you are sure before each process is killed.
+
+    killall -i <programname>
+
+Kill Processes That Have Been Running For A Certain Amount Of Time
+
+Imagine you have been running a program and it is taking a lot longer than you hoped it would.
+
+You can kill the command in the following way:
+
+    killall -o h4 <programname>
+
+The h in the above command stands for hours.
+
+You can also specify any one of the following:
+
+    s - seconds
+    m - minutes
+    h - hours
+    d - days
+    w - weeks
+    M - months
+    y - years
+
+Alternatively if you wish to kill commands that have only just started running you can use the following switch:
+
+    killall -y h4 <programname>
+
+This time the killall command will kill all programs running for less than 4 hours.
+Don't Tell Me When A Process Isn't Killed
+
+By default if you try and kill a program that isn't running you will receive the following error:
+
+    programname: no process found
+
+If you don't want to be told if the process wasn't found use the following command:
+
+    killall -q <programname>
+
+Using Regular Expressions
+
+Instead of specifying the name of a program or command you can specify a regular expression so that all processes which match the regular expression are closed by the killall command.
+
+To use a regular expression use the following command:
+
+    killall -r <programname>
+
+Kill Programs For A Specify User
+
+If you want to kill a program that is being run by a specific user you can specify the following command:
+
+    killall -u <username> <programname>
+
+If you want to kill all of the processes for a particular user you can omit the program name.
+Wait For killall To Finish
+
+By default killall will return straight back to the terminal when you run it but you can force killall to wait until all the processes specified have been closed before returning you to the terminal window.
+
+To do this run the following command:
+
+    killall -w <programname>
+
+If the program never dies then killall will also continue to live on.
+Signals Signals Signals
+
+By default the killall command sends the SIGTERM signal to programs to get them to close and this is the cleanest method for killing programs.
+
+There are however other signals you can send using the killall command and you can list them using the following command:
+
+    killall -l
+
+The list returned will be something like this:
+
+    HUP
+    INT
+    QUIT
+    ILL
+    TRAP
+    ABRT
+    IOT
+    BUS
+    FPE
+    KILL
+    USR1
+    SEGV
+    USR2
+    PIPE
+    ALRM
+    TERM
+    STKFLT
+    CHLD
+    CONT
+    STOP
+    TSTP
+    TTIN
+    TTOU
+    URG
+    XCPU
+    XFSZ
+    VTALRM
+    PROG
+    WYNCH
+    IO
+    PWR
+    SYS
+    UNUSED
+
+That list is extremely long. To read about what these signals mean run the following command:
+
+    man 7 signal
+
+Generally you should use the default SIGTERM option but if the program refuses to die you can use SIGKILL which forces the program to close albeit in an undignified way.

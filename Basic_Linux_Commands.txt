@@ -1,0 +1,246 @@
+http://brakertech.com/red-hat-linux-cheat-sheet-commands-examples-rhel/
+
+Useful Linux Commands (Red Hat)
+
+(http://www.cse.buffalo.edu/~eisner/DLW)
+Revised 3/1/2000
+
+Getting information
+man commandname
+display the manual page for a particular command named commandname
+man -S sectionnumber commandname
+display the manual page under a specific section numbered sectionnumber for the command named commandname. Sometimes the same command will exist in more than one section. man alone will display the lowest-numbered section only. To see other sections, you’ll need to use the -s flag. The different sections are:
+1 – user commands
+2 – system calls
+3 – libc calls
+4 – devices
+5 – file formats and protocols
+6 – games
+7 – conventions, macro packages, etc.
+8 – system administration
+
+man -l commandname
+list all the man pages available for commandname
+man -l intro
+interesting reading– when you have the time
+man -K keyword
+searches all man pages for keywords
+info
+the other major way to find information about commands. Somewhat obscure to navigate, but quite useful. Basically, navigate using tab key to select a node, return key to enter a node, ‘l’ key to go back, ‘q’ to quit. Useful information available through info include:
+libg++
+iostream
+gdb
+make
+tar
+gzip
+which commandname
+find the path to a commandname
+whatis commandname
+tells you what a command is and does. works sometimes.
+File Manipulation
+Some file notations
+. (current directory)
+./myfile.txt (a file in current directory)
+./mydirectory/myfile.txt (a file in a subdirectory of current directory)
+mydirectory/myfile.txt (same as above, a file in a subdirectory of current directory)
+.. (parent directory of current directory)
+../otherdirectory (a sibling subdirectory of current directory [go back one level and down another directory])
+/ (the ultimate root directory)
+~ (my home directory)
+~/mydirectory (a subdirectory of my home directory)
+~otheruser (another user’s home directory)
+filename*.txt (“*” is the wildcard character)
+cp fromfilename tofilename
+copy from fromfilename tofilename
+mv fromfilename tofilename
+
+--------------------------
+Move from fromfilename to tofilename.
+----------------------------
+rm
+remove a file (DANGER: this is permanent!)
+rm -i
+asks you before removing a file
+rm -R
+recursively remove a directory and every file in it (DANGER)
+> filename
+redirect output to a file named filename. Overwrites that file. Example: ls > directory.txt
+>> filename
+redirect output to a file named filename. Appends to the end of that file.
+< redirect in
+redirect input to a program. Example: myprogram < myfile.txt
+| mycommand
+pipe output so it goes through a certain command. Example: ls -l | less
+| grep myword
+pipe output through grep. grep searches for “myword” and displays only those lines containing that word. Example (to search for all files containing “.cc”: ls -l | grep .cc
+find mydirectory -name “nametolookfor”
+searches mydirectory and all its subdirectories for a file named “nametolookfor”
+find . -name “proj3*”
+searches the current directory and all its subdirectories for a file begining with “proj3″.
+Moving Around
+pwd
+shows which directory you are currently in
+cd newdirectory
+changes to a new directory
+cd ~
+change to your home directory.
+cd [tab key]
+change to your home directory.
+cd –
+changes to the last directory you were in.
+mkdir directoryname
+Make a new directory.
+Executing commands (some are tcsh-specific)
+^Z (Control-Z)
+This suspends a currently running command. You can then use “bg” or “fg” on it.
+bg
+Sends your suspended command to run in the background.
+fg
+Resumes execution of your currently suspended command.
+fg jobnumber
+Resumes execution of your suspended command with job number jobnumber.. Use “sps” or “jobs” to see job numbers.
+mycommand &
+runs the command named mycommand in the background
+!foo
+repeats the last command you ran beginning with the word “foo”
+jobs
+shows background jobs that were spawned from this current shell.
+nice +nicelevel commandname
+runs a command with a lower priority. Priorities range from 0 to +19, +19 being the lowest priority available. If you are going to run a cpu-intensive command, it is nice to nice it.
+renice +nicelevel jobnumber
+resets a particular command to a different priority level
+
+ps
+shows your current processes attached to this terminal. Use “ps -aux” to see everything.
+
+top
+show the processes that are using the most resources
+top -Uusername
+
+show a user’s processes in order of resource usage.
+
+kill jobnumber
+kill off a particular process (BE CAREFUL)
+kill -9 jobnumber
+kill off a particularly troublesome process if the above doesn’t work (BE VERY CAREFUL)
+Using Text Files
+
+cat filename
+outputs content of a file to the screen
+cat filename1 filename2 > filename3
+concatenates filename1 and filename2 into a new file named filename3
+more filename
+displays a file page by page
+less filename
+does the same thing as more, but a little cooler
+head filename
+shows the first 10 lines of a file.
+head -numberoflines filename
+shows the first specified number of lines of a file. Ex. tail -50 filename
+tail filename
+shows the last 10 lines of a file.
+tail -numberoflines filename
+shows the last specified number of lines of a file. Ex. tail -50 filename
+nl filename
+sticks line numbers in front of each line in your file and redirects output to the screen
+Using Other Files
+file filename
+find out what type of file filename is
+gzip filename
+compress a file
+gunzip filename
+uncompress a file
+tar cvf tarfilename file1 file2 file3 etc.
+archive a bunch of files or directories into one tar file.
+tar xvf tarfilename
+un-archive a tar file into its constituent files
+zcat filename
+like gunzip, but sends output to stdout.
+zcat filename | tar -xvf –
+unzips a compressed, tar’ed file, and untars it directly without creating an intermediate file
+eject
+eject the cd tray
+cdplay
+play audio CD’s in the cdrom drive.
+cat .au > /dev/audio
+play an au sound file.
+mpg123
+play MP3 files.
+xpdf
+view pdf files
+gv
+view ps files
+xdvi
+view dvi files
+xview
+view gif, jpeg, png files
+Spying and Surveillance on Other Users
+finger
+Check to see if someone is logged into your system.
+.plan files
+If you put text into a file named “.plan” in your home directory, people will see it when they finger you.
+whoami
+in case you forget.
+rwho
+who is on
+who
+who is on
+w
+who is on, and what they’re doing
+/scratch/QUOT
+this directory has files that show the biggest user of the /scratch directory
+talk username
+start chat session with another user
+ytalk username
+start chat session with multiple users
+Learning about the Machine
+xload
+see the system load
+quota -v
+How much of your disk and file quota you are using up.
+df
+How much disk space is free on various drives.
+du
+How much space files are taking up in this current directory.
+Miscellaneous Fun
+clock
+display a clock
+ssh
+log into a different machine securely. We recommend using “ssh” over telnet and rlogin. May interfere with Java Swing GUI stuff.
+set autolist
+Auto-suggest commands you type on the command line.
+mesg n
+Turns messages off so you won’t be disturbed.
+from
+Tells you who your new mail is from.
+biff
+A text-based program which will show a message when you receive new mail.
+xbiff
+shows a picture of a mailbox on your screen. The flag goes up and it beeps when you get new mail.
+set nobeep = 1
+Turns off that annoying beep.
+lynx
+text-based web browser
+Administrative Commands
+(most of these commands must be executed as root)
+
+ifconfig
+view and play with your ethernet and tcp/ip settings
+su username
+change your current shell to one owned by username
+mount/umount
+mount and unmount file systems
+control-panel
+brings up the Red Hat control panel
+shutdown time
+shuts down the system at time
+route
+manually edit routing table (warning: careful)
+init #
+manually tell init to go to runlevel #
+fsck
+check the hard disk for errors
+hdparm
+can greatly increase the performance of your hard disk (careful)
+isapnp
+utility to help configure Plug’N’Play devices

@@ -1,0 +1,4 @@
+sudo apt-get install lyx chktex dvipost gnuhtml2latex groff librsvg2-bin inkscape linuxdoc-tools noweb rcs sgmltools-lite texlive-xetex etoolbox wv rcs dvipost groff libtiff-tools noweb writer2latex latex2rtf lyx-dbg debhelper texlive-latex-recommended texlive-latex-extra texlive-science texlive-generic-recommended texlive-generic-extra texlive-fonts-recommended preview-latex-style dvipng psutils fonts-lyx elyxer tex4ht hevea tth latex2html
+
+This may be 52 +215 + 228 (500 MB in size)
+

@@ -1,0 +1,79 @@
+SD Cardreader bug issue. Chat notes on web page helped me find a gold nugget for troubleshooting.
+
+==========================================
+https://bugs.launchpad.net/ubuntu/+source/linux/+bug/995743
+=========================================
+
+
+ubuntu-bug
+
+*** What kind of problem do you want to report?
+
+
+Choices:
+  1: Display (X.org)
+  2: External or internal storage devices (e. g. USB sticks)
+  3: Security related problems
+  4: Sound/audio related problems
+  5: dist-upgrade
+  6: release-upgrade
+  7: ubuntu-release-upgrader
+  8: Other problem
+  C: Cancel
+Please choose (1/2/3/4/5/6/7/8/C): 2
+
+*** Collecting problem information
+
+The collected information can be sent to the developers to improve the
+application. This might take a few minutes.
+
+*** What particular problem do you observe?
+
+
+Choices:
+  1: Removable storage device is not mounted automatically
+  2: Internal hard disk partition cannot be mounted manually
+  3: Internal hard disk partition is not displayed in Places menu
+  4: No permission to access files on storage device
+  5: Documents cannot be opened in desktop UI on storage device
+  6: Other problem
+  C: Cancel
+Please choose (1/2/3/4/5/6/C): 
+
+Choices:
+  1: Removable storage device is not mounted automatically
+  2: Internal hard disk partition cannot be mounted manually
+  3: Internal hard disk partition is not displayed in Places menu
+  4: No permission to access files on storage device
+  5: Documents cannot be opened in desktop UI on storage device
+  6: Other problem
+  C: Cancel
+Please choose (1/2/3/4/5/6/C): 1
+
+*** 
+
+Please disconnect the problematic device now if it is still plugged in.
+
+Press any key to continue... 
+
+
+*** 
+
+Please connect the problematic device now.
+
+Press any key to continue...  
+..........................
+
+*** Send problem report to the developers?
+
+After the problem report has been sent, please fill out the form in the
+automatically opened web browser.
+
+What would you like to do? Your options are:
+  S: Send report (117.0 KB)
+  V: View report
+  K: Keep report file for sending later or copying to somewhere else
+  I: Cancel and ignore future crashes of this program version
+  C: Cancel
+Please choose (S/V/K/I/C): c
+

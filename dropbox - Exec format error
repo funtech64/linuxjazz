@@ -1,0 +1,14 @@
+
+kurtsemler Level 2
+Level 2
+February
+
+$rm -rf ~/.dropbox-dist
+
+$rm -rf ~/.dropbox
+
+$dropbox install -i
+
+Than, ran the dropbox download program and login. I had repeated the process and than hit "dropbox status" to no end getting frustrated.
+
+The above three commands fix Dropbox.

@@ -1,0 +1,28 @@
+Usage
+1. Command mode in markdown file
+open a markdown file
+type cmd-shift-p to enter command mode
+type markdown-editor: Open with markdown editor
+
+
+2. Key bindings
+open a markdown file
+type ctrl+shift+alt+m for win or cmd+shift+alt+m for mac
+
+3. Explorer Context menu
+right click on markdown file
+then click Open with markdown editor
+
+4. Editor title context menu
+right click on a opened markdown file's tab title
+then click Open with markdown editor
+Acknowledgement
+vscode
+vditor
+Todo
+Using Custom Text Editor (demo)
+License
+MIT
+
+Support
+If you like this extension make sure to star the repo. I am always looking for new ideas and feedback. In addition, it is possible to donate via paypal.

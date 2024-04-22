@@ -1,0 +1,7 @@
+sudo apt-get install gparted reiser4progs gpart libparted-dev -y
+sudo apt-get install reiser4progs gpart libparted-dev -y
+
+
+
+
+

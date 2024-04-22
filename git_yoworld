@@ -1,0 +1,70 @@
+
+https://youtu.be/SwK2dPFXhpU
+
+Quick setup — if you’ve done this kind of thing before
+or  https://github.com/aptfan/yoworld.git
+or (ssh) git@github.com:aptfan/yoworld.git
+
+We recommend every repository include a README, LICENSE, and .gitignore.
+…or create a new repository on the command line
+
+echo "# yoworld" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/aptfan/yoworld.git
+git push -u origin master
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/aptfan/yoworld.git
+git push -u origin master
+
+…or import code from another repository
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+
+----
+Install
+----
+
+
+chip@dale ~/aptfan $ mkdir yoworld
+chip@dale ~/aptfan $ ls
+yoworld
+chip@dale ~/aptfan $ cd yoworld
+chip@dale ~/aptfan/yoworld $ echo "# yoworld" >> README.md
+chip@dale ~/aptfan/yoworld $ git init
+Initialized empty Git repository in /home/chip/aptfan/yoworld/.git/
+chip@dale ~/aptfan/yoworld $ git add README.md
+chip@dale ~/aptfan/yoworld $ git commit -m "first commit"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'chip@dale.(none)')
+chip@dale ~/aptfan/yoworld $ git config --global user.name "aptfan"
+chip@dale ~/aptfan/yoworld $ git config --global user.email "aptfan@nym.hush.com"
+chip@dale ~/aptfan/yoworld $ git commit -m "first commit"[master (root-commit) 025bd47] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+chip@dale ~/aptfan/yoworld $ git remote add origin https://github.com/aptfan/yoworld.git
+chip@dale ~/aptfan/yoworld $ git push -u origin master
+Username for 'https://github.com': aptfan
+Password for 'https://aptfan@github.com': 
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 216 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/aptfan/yoworld.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+chip@dale ~/aptfan/yoworld $ 
+

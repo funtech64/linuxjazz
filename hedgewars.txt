@@ -1,0 +1,5 @@
+sudo apt-get install hedgewars
+Suggested packages:
+  apache2 lighttpd httpd
+
+light httpd worked...

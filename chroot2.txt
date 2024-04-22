@@ -1,0 +1,15 @@
+https://www.youtube.com/watch?v=XTyY3in5r6Q
+
+sudo apt-get install dchroot
+
+(reccomended)
+E: Package 'aufs-modules' has no installation candidate
+E: Package 'unionfs-modules' has no installation candidate
+
+sudo apt-get install debootstrap btrfs-tools qemu-user-static
+
+told to cd /etc
+
+
+(GERMAN... hahah) https://www.youtube.com/watch?v=dOVM5TxstUI
+

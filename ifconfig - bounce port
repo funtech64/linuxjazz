@@ -1,0 +1,38 @@
+jollx@RebeccaII ~ $ sudo ifconfig enp6s0 down
+jollx@RebeccaII ~ $ sudo ifconfig enp6s0 up
+jollx@RebeccaII ~ $ ifconfig
+enp6s0    Link encap:Ethernet  HWaddr e0:69:95:5c:10:7b  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:2912916 errors:0 dropped:11 overruns:0 frame:0
+          TX packets:2949777 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:910869028 (910.8 MB)  TX bytes:494229951 (494.2 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:1283964 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1283964 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:741619316 (741.6 MB)  TX bytes:741619316 (741.6 MB)
+
+jollx@RebeccaII ~ $ ifconfig
+enp6s0    Link encap:Ethernet  HWaddr e0:69:95:5c:10:7b  
+          inet addr:192.168.1.98  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::58f8:3e53:ff78:8d01/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2913419 errors:0 dropped:11 overruns:0 frame:0
+          TX packets:2950279 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:910990989 (910.9 MB)  TX bytes:494309746 (494.3 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:1284366 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1284366 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:741729689 (741.7 MB)  TX bytes:741729689 (741.7 MB)
+

@@ -1,0 +1,5 @@
+sudo apt-get install gparted -y --install-recommends
+
+sudo apt-get install reiser4progs gpart libparted-dev
+
+sudo apt-get install parted-doc

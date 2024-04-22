@@ -1,0 +1,28 @@
+basic git setup
+
+mkdir xxx
+cd xxx
+git init (initilize)
+create file
+git add - makes Git care about file
+git commit - sets it in a state in Git that tracks what happens to it.
+
+(tac) m "allows us to add notes to the commit"
+
+alter a file...
+
+*** run git status and it offers options
+
+git add <file> re-commit
+
+git checkout <file> - discards the changes
+
+teacher: git add . - adds all the files back into the commit
+
+!!! no -m or note does not allow the commit to complete
+
+
+git log - shows all the crap that was done and the author that did it..
+
+
+git rm removes the file from the git repository. NO event on the file.

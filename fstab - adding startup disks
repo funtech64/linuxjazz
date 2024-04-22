@@ -1,0 +1,66 @@
+Dec 18
+*************
+
+UUID is found on blkid
+
+Google search: fstab with uuid and hit pictures!!!!
+
+Good example:
+
+# <file system> <mount point> <type> <options> <dump> <pass>
+
+# <file system> <mount point> <type> <options> <dump> <pass>
+/dev/pve/root / ext4 errors=remount-ro 0 1
+UUID=99D8-3797 /boot/efi vfat defaults 0 1
+/dev/pve/swap none swap sw 0 0
+proc /proc proc defaults 0 0
+
+UUID=841afb01-c7e8-42f7-b0df-0dc50fa829c4 /media/backup ext4 defaults 0 0
+
+--------------------------------------------------------------------------------------------------
+# mount -a /mnt/
+
+August '18
+***************
+File system on Mint was corrupted by Windows because /dev/*** wasn't replaced by UUID=diskname!!!
+***************
+
+
+ - - - - START - - - - -
+
+cfdisk
+and/or cfdisk /dev/sda
+
+# mkfs.ext4 /dev/sdb1
+
+sudo blkid
+
+--gets the UUID to the drive as the names are "label" in mint file system
+
+
+---------------------
+https://askubuntu.com/questions/154180/how-to-mount-a-new-drive-on-startup (terrible)
+
+https://www.cyberciti.biz/faq/linux-finding-using-uuids-to-update-fstab/
+Use this one
+-------------------
+    Now you can add it to fstab
+
+    You need to add it to /etc/fstab use your favourite text editor
+
+    Be careful with this file as it can quite easily cause your system not to boot.
+
+    Add a line for the drive, the format would look like this.
+
+    This assumes the partition is formatted as ext4 as per mkfs above
+
+    #device        mountpoint             fstype    options  dump   fsck
+
+    /dev/sdb1    /home/yourname/mydata    ext4    defaults    0    1
+
+    UUID=############ <tab> earlier crap!!! 
+
+UUID={YOUR-UID}    {/path/to/mount/point}               {file-system-type}    defaults,errors=remount-ro 0       1
+
+Then on the next reboot it will auto mount.
+
