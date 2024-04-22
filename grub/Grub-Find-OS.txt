@@ -1,0 +1,45 @@
+Find a newly installed OS in boot order....
+
+sudo update-grub
+
+=================================
+Adding Windows to the grub:
+=================================
+
+
+    Open a terminal and type:
+
+sudo nano /etc/grub.d/40_custom
+
+    Add the following line:
+
+    menuentry "Windows 10 (loader) (on /dev/sda4)" {
+    insmod part_msdos
+    insmod ntfs
+    set root='(hd0,msdos1)'
+    chainloader +1
+    }
+
+by appropriately modifying the location of windows 7 in your computer.
+
+    Run sudo update-grub
+
+Note If you are not careful these operations can mess up your computer.
+
+
+===================================
+FreeBSD
+===================================
+Add freebsd to grub2
+According to this site:
+
+    Boot Linux.
+    Create a /boot/grub2/custom.cfg file.
+    Add these lines to the created file: menuentry "FreeBSD" { set root='(hd0,3)' kfreebsd /boot/loader } ...
+    Run grub2-mkconfig -o /boot/grub2/grub.cfg .
+
+Jan 14, 2014
+Add FreeBSD to GRUB2 boot menu - Unix & Linux Stack Exchange
+https://unix.stackexchange.com/questions/109272/add-freebsd-to-grub2-boot-menu
+Search for: Add freebsd to grub2
+

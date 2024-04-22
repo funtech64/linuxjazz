@@ -1,0 +1,179 @@
+https://linuxconfig.org/how-to-install-docker-on-ubuntu-18-04-bionic-beaver
+
+Objective
+Install the latest Docker release on Ubuntu 18.04
+Distributions
+Ubuntu 18.04 Bionic Beaver
+Requirements
+A working install of Ubuntu 18.04 with root privileges
+Difficulty
+Easy
+Conventions
+
+    # - requires given linux commands to be executed with root privileges either directly as a root user or by use of sudo command
+    $ - requires given linux commands to be executed as a regular non-privileged user
+
+Introduction
+Docker has revolutionized how web applications are hosted and servers are run. Docker containers allow server administrators to compartmentalize their applications like virtual machines, but containers are much lighter weight, are easier to manager, and add less overhead. Installing Docker on Ubuntu is very simple. Because Ubuntu is a popular choice for the cloud, the entire process has been streamlined to a science.
+Install Docker from Ubuntu Repository
+Installation from the standard Ubuntu repository consists of a single apt command. It may yield stable but lower docker version number:
+
+$ sudo apt install docker.io
+
+The following linux commands will start Docker and ensure that starts after the reboot:
+
+$ sudo systemctl start docker
+$ sudo systemctl enable docker
+
+All done.
+
+$ docker --version
+Docker version 17.03.2-ce, build f5ec1e2
+
+Install Docker from the Official Docker Repository
+Install the Dependencies
+Docker has its own repositories. Before you can install it from those repos, you need to install the prerequisite dependencies. Update your system, and grab them with Apt.
+
+$ sudo apt update
+$ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+Add The Docker Repository
+Create a new file for the Docker repository at /etc/apt/sources.list.d/docker.list. In that file, place one of the following lines choosing either stable, nightly or edge builds:
+
+STABLE (NOT YET AVAILABLE!), please check availabilty before using:
+deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+EDGE:
+deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic edge
+NIGHTLY:
+deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic nightly
+
+Next, you need to add Docker's GPG key.
+
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+Once, that's imported, update Apt again.
+
+$ sudo apt update
+
+Install Docker CE
+You can simply install the Docker CE package.
+
+$ sudo apt install docker-ce
+
+Done. Check for docker version:
+
+$ docker --version
+Docker version 18.03.0-ce, build 0520e24
+
+Add A Container
+There's more than one way to add a Docker container. If you're familiar with Docker, this isn't for you. However, if you've decided to give Docker a try for the first time, the easiest way to get started is to use any of the excellent existing Docker images available online. Docker is configured to pull them automatically for you when you request them by with the name of the developer and the repository.
+
+$ sudo docker run username:repository
+
+In the case of officially supported images, you don't need to specify a username. They do tend to come with more options, though. You might want to specify tags for them. That's done with a colon after the repository name.
+
+$ sudo docker run wordpress:php-7.2-fpm-alpine
+
+You can also specify the port that the container listens on. By default, most containers are configured to listen on 80 internally. You can make Docker listen on a different port and forward that to the container's 80.
+
+$ sudo docker run 9000:80 wordpress
+
+That container will listen on the server's port 9000 and forward the traffic to the container's port 80. This makes it easier to run multiple web services on the same server.
+Managing Containers
+Managing containers is fairly straightforward too. You can probably already guess that starting up a container is the same as adding a new one. That's the run command. In this case, the -d flag detaches the container, so it's not taking up your terminal.
+
+$ sudo docker run -d wordpress
+
+Since you can have multiples of the same container running, almost everything else here uses the hashes that Docker automatically assigns to running containers. To list out all the containers running on your system, use the ls option.
+
+$ sudo docker container ls
+
+If you want to stop a container, use stop followed by the hash of that container.
+
+$ sudo docker container stop HASH
+
+Removing a container is easy too. Use rm.
+
+$ sudo docker container rm HASH
+
+Closing Thoughts
+Docker is a powerful tool. There are a lot more options, and Docker is capable of a wide range of configurations. With the information here, though, you can get started with Docker on Ubuntu and use it effectively in most basic situations.
+ARE YOU LOOKING FOR A LINUX JOB?
+Submit your RESUME or create a JOB ALERT on LinuxCareers.com job portal.
+DO YOU NEED ADDITIONAL HELP?
+Get extra help by visiting our LINUX FORUM or simply use comments below.
+More on LinuxConfig.org:
+
+    How to create a docker-based LAMP stack using docker-compose on Ubuntu 18.04 Bionic Beaver Linux
+    How to install Kubernetes on Ubuntu 18.04 Bionic Beaver Linux
+    How to change password on Ubuntu 18.04 Bionic Beaver Linux
+    How to install Kodi on Ubuntu 18.04 Bionic Beaver Linux
+
+You may also be interested in:
+Comments and Discussions
+SUPPORT US
+LinuxConfig.org team is determined to provide you with simple to follow Linux tutorials, various tips, tricks and programming guides as well as with GNU/Linux system administration tutorials in general to help you to learn Linux faster and use it with ease.
+
+Any comments, constructive feedback or your involvement is welcome.
+
+Donations
+Bitcoin (BTC) Address:
+1PyYJEVtxkokkYtLkRw9BA7Fr4xEAXJn3U
+
+Linux Config Support
+
+
+Litecoin (LTC) Address:
+LXvDNUcdKuh3Svge358rNanXfXMKcPkxCo
+
+Linux Config Support
+
+Thank You
+Write For Us
+LinuxConfig is looking for a technical writer(s) geared towards GNU/Linux and FLOSS technologies. Your articles will feature various GNU/Linux configuration tutorials and FLOSS technologies used in combination with GNU/Linux operating system.
+
+When writing your articles you will be expected to be able to keep up with a technological advancement regarding the above mentioned technical area of expertise. You will work independently and be able to produce at minimum 2 technical articles a month.
+
+APPLY NOW
+
+Contact
+web ( at ) linuxconfig ( dot ) org
+Featured Linux Tutorials
+
+    Bash scripting Tutorial
+    Howto mount USB drive in Linux
+    How to install Skype on Ubuntu 16.04 Xenial Xerus Linux 64-bit
+    How to check CentOS version
+    How to install Steam on Ubuntu 16.04 Xenial Xerus
+    Check what Debian version you are running on your Linux system
+    How to stop/start and disable/enable Firewall on Redhat 7 Linux system
+    How to setup and use FTP Server in Ubuntu Linux
+    How to mount partition with ntfs file system and read write access
+    How to install the latest Nvidia drivers on Ubuntu 16.04 Xenial Xerus
+    Enable SSH root login on Debian Linux Server
+    How to mount cdrom in Linux
+    Debian apt-get wheezy sources.list
+    Configuring virtual network interfaces in Linux
+    NVIDIA GeForce Driver Installation on Debian Jessie Linux 8 64bit
+
+Latest Articles
+
+    Redhat 8 recover root password
+    How to create an rpm package
+    Redhat 8 enable ssh service
+    Redhat 8 open FTP port 21 with firewalld
+    Redhat 8 open HTTP port 80 and HTTPS port 443 with firewalld
+    Redhat 8 add user to sudoers
+    Redhat 8: text mode install guide
+    How to install Google Chrome in Redhat Linux 8
+    Virtualbox: install guest additions on Redhat 8
+    Enable Subscription Management repositories on Redhat 8 Linux
+    Install gnome on Redhat 8
+    How to install Gnome Desktop on Manjaro 18 Linux
+    How to install Deepin Desktop on Manjaro 18 Linux
+    Check Manjaro Version
+    How To Interact With Docker Containers
+
+© 2007 - 2018 LinuxConfig.org
+Privacy Twitter
+LinuxConfig.org website uses cookies to draw up website audience statistics and measurements and offer you services and offers adapted to your interests. By continuing to browse the site without changing your settings you are agreeing to our use of cookies. For more information visit https://linuxconfig.org/privacy.I Accept

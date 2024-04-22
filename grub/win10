@@ -1,0 +1,35 @@
+13
+
+Sometimes os-prober is wrong.
+
+Look at the UUID of your Windows 10 partition, for exemple:
+
+sudo blkid /dev/sda2
+
+Then edit /etc/grub.d/40_custom, and at the end of the file add:
+
+menuentry "Windows 10" --class windows --class os {
+   insmod ntfs
+   search --no-floppy --set=root --fs-uuid $your_uuid_here$
+   ntldr /bootmgr
+}
+
+Don't forget to change the UUID.
+
+And finally update your grub config file:
+
+sudo update-grub
+
+Source
+shareimprove this answer
+edited Mar 7 '17 at 17:32
+Zanna
+51k13138242
+answered Mar 7 '17 at 16:08
+noraj
+35127
+
+    1
+    worth to note that for windows 10, usually the first partition is NOT the Windows system one, (i.e sdb2 is correct and sdb1 is NOT) This is because of how the windows 10 is stored on the disk during install, and the system reserved partition or system repair is always first). Grub often fails to find the second partition if the first one on the disk already provides something bootable. the easiest way to find the correct UUID is finding the biggest partition via sudo fdisk -l and match it with the result of blkid. – janmyszkier Apr 9 '17 at 14:28
+
+add a comment

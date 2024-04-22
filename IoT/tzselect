@@ -1,0 +1,97 @@
+
+
+=================
+There was an edit I made to .profile to make it work...
+Site for lots of opinions: https://www.raspberrypi.org/forums/viewtopic.php?t=4977&f=5
+
+
+
+
+Configure Timezone Settings on Raspberry Pi Raspbian Wheezy
+Posted on 28 July 2013 by Aryo Pinandito — 10 Comments ↓
+
+Below is an example on how to configure date and timezone settings on your Raspberry Pi Raspbian Wheezy. The following example is based on Debian Linux and it is working perfectly with Raspbian Wheezy for Raspberry Pi.
+
+pi@raspi: ~ $ sudo -i
+password:
+root@raspi:~# tzselect 
+Please identify a location so that time zone rules can be set correctly.
+Please select a continent or ocean.
+ 1) Africa
+ 2) Americas
+ 3) Antarctica
+ 4) Arctic Ocean
+ 5) Asia
+ 6) Atlantic Ocean
+ 7) Australia
+ 8) Europe
+ 9) Indian Ocean
+10) Pacific Ocean
+11) none - I want to specify the time zone using the Posix TZ format.
+#? 5
+Please select a country.
+ 1) Afghanistan		  18) Israel		    35) Palestine
+ 2) Armenia		  19) Japan		    36) Philippines
+ 3) Azerbaijan		  20) Jordan		    37) Qatar
+ 4) Bahrain		  21) Kazakhstan	    38) Russia
+ 5) Bangladesh		  22) Korea (North)	    39) Saudi Arabia
+ 6) Bhutan		  23) Korea (South)	    40) Singapore
+ 7) Brunei		  24) Kuwait		    41) Sri Lanka
+ 8) Cambodia		  25) Kyrgyzstan	    42) Syria
+ 9) China		  26) Laos		    43) Taiwan
+10) Cyprus		  27) Lebanon		    44) Tajikistan
+11) East Timor		  28) Macau		    45) Thailand
+12) Georgia		  29) Malaysia		    46) Turkmenistan
+13) Hong Kong		  30) Mongolia		    47) United Arab Emirates
+14) India		  31) Myanmar (Burma)	    48) Uzbekistan
+15) Indonesia		  32) Nepal		    49) Vietnam
+16) Iran		  33) Oman		    50) Yemen
+17) Iraq		  34) Pakistan
+#? 15
+Please select one of the following time zone regions.
+1) Java & Sumatra
+2) west & central Borneo
+3) east & south Borneo, Sulawesi (Celebes), Bali, Nusa Tengarra, west Timor
+4) west New Guinea (Irian Jaya) & Malukus (Moluccas)
+#? 1
+
+The following information has been given:
+
+	Indonesia
+	Java & Sumatra
+
+Therefore TZ='Asia/Jakarta' will be used.
+Local time is now:	Sun Jul 28 08:02:57 WIT 2013.
+Universal Time is now:	Sun Jul 28 01:02:57 UTC 2013.
+Is the above information OK?
+1) Yes
+2) No
+#? 1
+
+You can make this change permanent for yourself by appending the line
+	TZ='Asia/Jakarta'; export TZ
+to the file '.profile' in your home directory; then log out and log in again.
+
+Here is that TZ value again, this time on standard output so that you
+can use the /usr/bin/tzselect command in shell scripts:
+Asia/Jakarta
+root@raspi:~#
+
+Notes Update:
+If any case that selecting timezone is not working, try to reconfigure your tzdata using dpkg-reconfigure tzdata command as root user and select your preferred time zone like the following example:
+
+aryo@raspi~ $ date
+Sun Sep 8 18:11:28 EDT 2013
+aryo@raspi~ $ sudo -i
+[sudo] password for aryo:
+root@raspi:~# dpkg-reconfigure tzdata
+
+Current default time zone: ‘Asia/Jakarta’
+Local time is now: Mon Sep 9 05:13:41 WIT 2013.
+Universal Time is now: Sun Sep 8 22:13:41 UTC 2013.
+
+root@raspi:~# date
+Mon Sep 9 05:13:47 WIT 2013
+root@raspi:~#
+
+Here’s a screenshot from executing dpkg-reconfigure tzdata command:

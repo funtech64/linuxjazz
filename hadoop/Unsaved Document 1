@@ -1,0 +1,12 @@
+http://apache.mirrors.pair.com/hadoop/common/stable/hadoop-3.3.6.tar.gz
+
+  fi
+fi
+#Set HADOOP_HOME
+export HADOOP_HOME=<Installation Directory of Hadoop>
+#Set JAVA_HOME
+export JAVA_HOME=<Installation Directory of Java>
+# Add bin/ directory of Hadoop to PATH
+export PATH=$PATH:$HADOOP_HOME/bin
+
+
