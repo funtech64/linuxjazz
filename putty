@@ -1,0 +1,11 @@
+How to Install PuTTY on Linux
+
+Putty is not installed by default on most Linux distributions. On Debian, it can be installed with the following command:
+
+sudo aptitude install putty
+
+Other related tools come in a separate installation package. To install them, use:
+
+sudo aptitude install putty-tools
+
+https://www.ssh.com/academy/ssh/putty/linux

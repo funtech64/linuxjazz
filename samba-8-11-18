@@ -1,0 +1,5 @@
+gnome-system-tools
+
+sudo apt-get install libsmbclient libwbclient0 python-dnspython python-samba python3-smbc samba samba-common samba-common-bin samba-dsdb-modules samba-libs samba-vfs-modules
+
+

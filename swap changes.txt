@@ -1,0 +1,9 @@
+1. For smooth running of Spotify we recommend to increase swap space. Open configuration file in Terminal (command line) using the following command:
+$ sudo nano /etc/dphys-swapfile
+Raspbian has 100MB of swap by default. You should change it to 2000MB in the configuration file. So you will have to find this line:
+CONF_SWAPSIZE=100
+And then change it into:
+CONF_SWAPSIZE=2048
+Press F3 key to save changes and F2 to close the file. Then restart dphys-swapfile to apply changes:
+$ sudo /etc/init.d/dphys-swapfile stop
+$ sudo /etc/init.d/dphys-swapfile start

@@ -1,0 +1,240 @@
+hip@dale ~ $ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Dec10 ?        00:00:01 /sbin/init
+root         2     0  0 Dec10 ?        00:00:00 [kthreadd]
+root         3     2  0 Dec10 ?        00:00:02 [ksoftirqd/0]
+root         5     2  0 Dec10 ?        00:00:00 [kworker/0:0H]
+root         7     2  0 Dec10 ?        00:07:43 [rcu_sched]
+root         8     2  0 Dec10 ?        00:00:00 [rcu_bh]
+root         9     2  0 Dec10 ?        00:06:06 [rcuos/0]
+root        10     2  0 Dec10 ?        00:00:00 [rcuob/0]
+root        11     2  0 Dec10 ?        00:00:00 [migration/0]
+root        12     2  0 Dec10 ?        00:00:01 [watchdog/0]
+root        13     2  0 Dec10 ?        00:00:01 [watchdog/1]
+root        14     2  0 Dec10 ?        00:00:00 [migration/1]
+root        15     2  0 Dec10 ?        00:00:04 [ksoftirqd/1]
+root        17     2  0 Dec10 ?        00:00:00 [kworker/1:0H]
+root        18     2  0 Dec10 ?        00:01:34 [rcuos/1]
+root        19     2  0 Dec10 ?        00:00:00 [rcuob/1]
+root        20     2  0 Dec10 ?        00:00:01 [watchdog/2]
+root        21     2  0 Dec10 ?        00:00:00 [migration/2]
+root        22     2  0 Dec10 ?        00:00:02 [ksoftirqd/2]
+root        24     2  0 Dec10 ?        00:00:00 [kworker/2:0H]
+root        25     2  0 Dec10 ?        00:04:48 [rcuos/2]
+root        26     2  0 Dec10 ?        00:00:00 [rcuob/2]
+root        27     2  0 Dec10 ?        00:00:01 [watchdog/3]
+root        28     2  0 Dec10 ?        00:00:00 [migration/3]
+root        29     2  0 Dec10 ?        00:00:03 [ksoftirqd/3]
+root        31     2  0 Dec10 ?        00:00:00 [kworker/3:0H]
+root        32     2  0 Dec10 ?        00:01:29 [rcuos/3]
+root        33     2  0 Dec10 ?        00:00:00 [rcuob/3]
+root        34     2  0 Dec10 ?        00:00:00 [khelper]
+root        35     2  0 Dec10 ?        00:00:00 [kdevtmpfs]
+root        36     2  0 Dec10 ?        00:00:00 [netns]
+root        37     2  0 Dec10 ?        00:00:00 [perf]
+root        38     2  0 Dec10 ?        00:00:00 [khungtaskd]
+root        39     2  0 Dec10 ?        00:00:00 [writeback]
+root        40     2  0 Dec10 ?        00:00:00 [ksmd]
+root        41     2  0 Dec10 ?        00:00:20 [khugepaged]
+root        42     2  0 Dec10 ?        00:00:00 [crypto]
+root        43     2  0 Dec10 ?        00:00:00 [kintegrityd]
+root        44     2  0 Dec10 ?        00:00:00 [bioset]
+root        45     2  0 Dec10 ?        00:00:00 [kblockd]
+root        46     2  0 Dec10 ?        00:00:00 [ata_sff]
+root        47     2  0 Dec10 ?        00:00:00 [md]
+root        48     2  0 Dec10 ?        00:00:00 [devfreq_wq]
+root        50     2  0 Dec10 ?        00:00:19 [kworker/2:1]
+root        52     2  0 Dec10 ?        00:00:02 [kswapd0]
+root        53     2  0 Dec10 ?        00:00:00 [fsnotify_mark]
+root        54     2  0 Dec10 ?        00:00:00 [ecryptfs-kthrea]
+root        66     2  0 Dec10 ?        00:00:00 [kthrotld]
+root        67     2  0 Dec10 ?        00:00:00 [acpi_thermal_pm]
+root        68     2  0 Dec10 ?        00:00:22 [kworker/3:1]
+root        69     2  0 Dec10 ?        00:00:00 [kworker/1:1]
+root        74     2  0 Dec10 ?        00:00:00 [ipv6_addrconf]
+root        93     2  0 Dec10 ?        00:00:00 [deferwq]
+root        94     2  0 Dec10 ?        00:00:00 [charger_manager]
+root       142     2  0 Dec10 ?        00:00:00 [kpsmoused]
+root       168     2  0 Dec10 ?        00:00:00 [scsi_eh_0]
+root       169     2  0 Dec10 ?        00:00:00 [scsi_tmf_0]
+root       170     2  0 Dec10 ?        00:00:00 [scsi_eh_1]
+root       171     2  0 Dec10 ?        00:00:00 [scsi_tmf_1]
+root       172     2  0 Dec10 ?        00:00:00 [scsi_eh_2]
+root       173     2  0 Dec10 ?        00:00:00 [scsi_tmf_2]
+root       174     2  0 Dec10 ?        00:00:00 [scsi_eh_3]
+root       175     2  0 Dec10 ?        00:00:00 [scsi_tmf_3]
+root       176     2  0 Dec10 ?        00:00:00 [scsi_eh_4]
+root       177     2  0 Dec10 ?        00:00:00 [scsi_tmf_4]
+root       178     2  0 Dec10 ?        00:00:00 [scsi_eh_5]
+root       179     2  0 Dec10 ?        00:00:00 [scsi_tmf_5]
+root       206     2  0 Dec10 ?        00:00:00 [scsi_eh_6]
+root       207     2  0 Dec10 ?        00:00:00 [scsi_tmf_6]
+root       208     2  0 Dec10 ?        00:00:54 [usb-storage]
+root       209     2  0 Dec10 ?        00:00:00 [ttm_swap]
+root       261     2  0 Dec10 ?        00:00:01 [kworker/3:1H]
+root       262     2  0 Dec10 ?        00:00:01 [kworker/1:1H]
+root       264     2  0 Dec10 ?        00:00:02 [kworker/0:1H]
+root       277     2  0 Dec10 ?        00:00:00 [bioset]
+root       284     2  0 Dec10 ?        00:00:01 [kworker/2:1H]
+root       290     2  0 Dec10 ?        00:00:00 [ext4-rsv-conver]
+root       333     1  0 Dec10 ?        00:00:00 mountall --daemon
+root       418     1  0 Dec10 ?        00:00:00 upstart-udev-bridge --daemon
+root       431     1  0 Dec10 ?        00:00:00 /lib/systemd/systemd-udevd --dae
+root       502     2  0 Dec10 ?        00:00:00 [cfg80211]
+root       561     2  0 Dec10 ?        00:00:00 [kvm-irqfd-clean]
+root       571     2  0 Dec10 ?        00:00:00 [hd-audio0]
+root       574     2  0 Dec10 ?        00:00:00 [hd-audio1]
+root       592     2  0 Dec10 ?        00:00:00 [kmpathd]
+root       595     2  0 Dec10 ?        00:00:00 [kmpath_handlerd]
+root       852     1  0 Dec10 ?        00:00:00 upstart-socket-bridge --daemon
+root       924     1  0 Dec10 ?        00:00:00 smbd -F
+message+   985     1  0 Dec10 ?        00:01:00 dbus-daemon --system --fork
+root      1031     1  0 Dec10 ?        00:00:00 /usr/sbin/ModemManager
+root      1038     1  0 Dec10 ?        00:00:00 /usr/sbin/bluetoothd
+root      1066     1  0 Dec10 ?        00:00:00 /lib/systemd/systemd-logind
+root      1095     2  0 Dec10 ?        00:00:00 [krfcommd]
+root      1101     1  0 Dec10 ?        00:01:06 NetworkManager
+syslog    1104     1  0 Dec10 ?        00:00:02 rsyslogd
+avahi     1132     1  0 Dec10 ?        00:00:08 avahi-daemon: running [dale.loca
+avahi     1134  1132  0 Dec10 ?        00:00:00 avahi-daemon: chroot helper
+root      1135     1  0 Dec10 ?        00:00:15 /usr/lib/policykit-1/polkitd --n
+colord    1158     1  0 Dec10 ?        00:00:00 /usr/lib/colord/colord
+root      1162     1  0 Dec10 tty4     00:00:00 /sbin/getty -8 38400 tty4
+root      1164     1  0 Dec10 tty5     00:00:00 /sbin/getty -8 38400 tty5
+root      1170     1  0 Dec10 tty2     00:00:00 /sbin/getty -8 38400 tty2
+root      1173     1  0 Dec10 tty3     00:00:00 /sbin/getty -8 38400 tty3
+root      1181     1  0 Dec10 tty6     00:00:00 /sbin/getty -8 38400 tty6
+root      1217     1  0 Dec10 ?        00:00:00 cron
+root      1224     1  0 Dec10 ?        00:00:20 /usr/sbin/irqbalance
+root      1329     1  0 Dec10 ?        00:00:00 /usr/sbin/cups-browsed
+chip      1337  3144  0 Dec12 ?        00:00:16 /usr/lib/vmware/bin/vmware
+chip      1379     1  0 Dec12 ?        00:01:55 /usr/lib/vmware/bin/vmware-tray 
+root      1382     1  0 Dec10 ?        00:00:00 mdm
+root      1390     1  0 Dec10 ?        00:00:00 upstart-file-bridge --daemon
+root      1416   924  0 Dec10 ?        00:00:00 smbd -F
+root      1431   924  0 Dec10 ?        00:00:01 smbd -F
+root      1441  1382  0 Dec10 ?        00:00:00 mdm
+root      1449     1  0 Dec10 ?        00:00:01 acpid -c /etc/acpi/events -s /va
+root      1454     1  0 Dec10 ?        00:00:12 /sbin/wpa_supplicant -B -P /run/
+root      1459     1  0 Dec10 ?        00:00:00 /usr/lib/vmware/bin/vmware-vmblo
+root      1471     1  0 Dec10 ?        00:00:00 /usr/bin/vmnet-bridge -s 6 -d /v
+root      1481  1441  0 Dec10 tty8     00:44:00 /usr/bin/X :0 -audit 0 -auth /va
+root      1496     1  0 Dec10 ?        00:00:00 /usr/bin/vmnet-netifup -s 6 -d /
+root      1504     1  0 Dec10 ?        00:00:00 /usr/bin/vmnet-dhcpd -s 6 -cf /e
+root      1508     1  0 Dec10 ?        00:00:01 /usr/bin/vmnet-natd -s 6 -m /etc
+root      1510     1  0 Dec10 ?        00:00:00 /usr/bin/vmnet-netifup -s 6 -d /
+root      1518     1  0 Dec10 ?        00:00:00 /usr/bin/vmnet-dhcpd -s 6 -cf /e
+kernoops  1542     1  0 Dec10 ?        00:00:08 /usr/sbin/kerneloops
+root      1558     1  0 Dec10 ?        00:00:12 /usr/sbin/vmware-authdlauncher
+mdm       1666     1  0 Dec10 ?        00:00:00 dbus-launch --autolaunch=11aa852
+mdm       1669     1  0 Dec10 ?        00:00:00 //bin/dbus-daemon --fork --print
+root      1794     2  0 Dec10 ?        00:00:00 [iprt-VBoxWQueue]
+root      1795     2  0 Dec10 ?        00:00:00 [iprt-VBoxTscThr]
+root      1821     1  0 Dec10 ?        00:21:12 /opt/teamviewer/tv_bin/teamviewe
+root      1859     1  0 Dec10 ?        00:00:13 /usr/bin/vmware-usbarbitrator
+root      2192     1  0 Dec10 ?        00:00:12 /usr/sbin/apache2 -k start
+root      2308     1  0 Dec10 tty1     00:00:00 /sbin/getty -8 38400 tty1
+root      2315  1101  0 Dec10 ?        00:00:00 /sbin/dhclient -d -sf /usr/lib/N
+root      2317  1101  0 Dec10 ?        00:00:00 /sbin/dhclient -d -sf /usr/lib/N
+nobody    2323  1101  0 Dec10 ?        00:00:01 /usr/sbin/dnsmasq --no-resolv --
+root      2455     1  0 Dec10 ?        00:00:04 /usr/sbin/winbindd -F
+root      2469     1  0 Dec10 ?        00:00:05 nmbd -D
+root      2470  2455  0 Dec10 ?        00:00:01 /usr/sbin/winbindd -F
+root      2571     2  0 Dec10 ?        00:00:00 [kauditd]
+chip      2575     1  0 Dec10 ?        00:00:00 /usr/bin/gnome-keyring-daemon --
+root      2580     1  0 Dec10 ?        00:00:00 /usr/sbin/console-kit-daemon --n
+chip      2651  1441  0 Dec10 ?        00:00:00 cinnamon-session --session cinna
+chip      2778  2651  0 Dec10 ?        00:00:01 /usr/bin/ssh-agent /usr/bin/dbus
+chip      2781     1  0 Dec10 ?        00:00:00 /usr/bin/dbus-launch --exit-with
+chip      2782     1  0 Dec10 ?        00:00:13 //bin/dbus-daemon --fork --print
+chip      2856     1  0 Dec10 ?        00:00:00 /usr/lib/at-spi2-core/at-spi-bus
+chip      2860  2856  0 Dec10 ?        00:00:01 /bin/dbus-daemon --config-file=/
+chip      2863     1  0 Dec10 ?        00:00:07 /usr/lib/at-spi2-core/at-spi2-re
+chip      2876  2651  0 Dec10 ?        00:28:19 /usr/lib/x86_64-linux-gnu/cinnam
+rtkit     2882     1  0 Dec10 ?        00:00:05 /usr/lib/rtkit/rtkit-daemon
+root      2891     1  0 Dec10 ?        00:00:00 /usr/lib/upower/upowerd
+chip      2968     1  0 Dec10 ?        00:00:00 /usr/lib/gvfs/gvfsd
+chip      2979     1  0 Dec10 ?        00:00:00 /usr/lib/gvfs/gvfsd-fuse /run/us
+chip      3097     1  0 Dec10 ?        00:00:01 /usr/lib/gvfs/gvfs-udisks2-volum
+root      3100     1  0 Dec10 ?        00:01:49 /usr/lib/udisks2/udisksd --no-de
+chip      3109     1  0 Dec10 ?        00:00:00 /usr/lib/gvfs/gvfs-afc-volume-mo
+chip      3114     1  0 Dec10 ?        00:00:00 /usr/lib/gvfs/gvfs-gphoto2-volum
+chip      3118     1  0 Dec10 ?        00:00:00 /usr/lib/gvfs/gvfs-mtp-volume-mo
+chip      3138     1  0 Dec10 ?        00:00:00 /usr/lib/x86_64-linux-gnu/cinnam
+chip      3139  2651  0 Dec10 ?        00:00:00 /usr/bin/python2 /usr/bin/cinnam
+chip      3144  3139  1 Dec10 ?        01:57:51 cinnamon --replace
+chip      3150  2651  0 Dec10 ?        00:00:00 /usr/lib/policykit-1-gnome/polki
+chip      3156  2651  0 Dec10 ?        00:01:58 nemo -n
+chip      3158  2651  0 Dec10 ?        00:01:14 nm-applet
+chip      3159  2651  0 Dec10 ?        00:00:00 /usr/bin/python2 /usr/bin/cinnam
+chip      3193     1  0 Dec10 ?        00:00:00 /usr/lib/x86_64-linux-gnu/gconf/
+chip      3198     1  0 Dec10 ?        00:00:00 /usr/lib/gvfs/gvfsd-metadata
+chip      3204     1  0 Dec10 ?        00:00:00 /usr/lib/gvfs/gvfsd-trash --spaw
+chip      3236     1  0 Dec10 ?        00:00:17 /usr/lib/dconf/dconf-service
+chip      3245     1  0 Dec10 ?        00:06:57 /usr/bin/pulseaudio --start --lo
+chip      3336  2651  0 Dec10 ?        00:11:39 cinnamon-screensaver
+chip      3337  2651  0 Dec10 ?        00:00:00 /usr/bin/python /usr/bin/mintupd
+chip      3340  3337  0 Dec10 ?        00:00:00 sh -c /usr/lib/linuxmint/mintUpd
+chip      3341  3340  0 Dec10 ?        00:00:02 /usr/bin/python2.7 /usr/lib/linu
+chip      3373  2651  0 Dec10 ?        00:00:03 /usr/bin/python /usr/share/syste
+root      3387     2  0 Dec10 ?        00:00:00 [jbd2/sdb1-8]
+root      3388     2  0 Dec10 ?        00:00:00 [ext4-rsv-conver]
+root      3991     1  0 Dec10 ?        00:00:22 /usr/lib/accountsservice/account
+chip      4140     1  0 Dec10 ?        00:00:02 /usr/lib/gvfs/gvfsd-http --spawn
+chip      5798     1  0 Dec10 ?        00:00:09 /usr/bin/python2 /usr/share/cinn
+root      7498     2  0 Dec10 ?        00:00:00 [jfsIO]
+root      7499     2  0 Dec10 ?        00:00:00 [jfsCommit]
+root      7500     2  0 Dec10 ?        00:00:00 [jfsCommit]
+root      7501     2  0 Dec10 ?        00:00:00 [jfsCommit]
+root      7502     2  0 Dec10 ?        00:00:00 [jfsCommit]
+root      7503     2  0 Dec10 ?        00:00:00 [jfsSync]
+root      7507     2  0 Dec10 ?        00:00:00 [xfsalloc]
+root      7508     2  0 Dec10 ?        00:00:00 [xfs_mru_cache]
+chip      7934  3144  0 Dec14 ?        00:15:32 /usr/lib/thunderbird/thunderbird
+chip     10266     1  0 Dec15 ?        00:00:02 /usr/lib/gvfs/gvfsd-recent --spa
+chip     14408     1  0 Dec15 ?        00:01:27 /home/chip/.dropbox-dist/dropbox
+root     17427     2  0 Dec15 ?        00:00:01 [kworker/1:0]
+root     19669     2  0 03:26 ?        00:00:01 [kworker/2:2]
+root     19780     2  0 13:49 ?        00:00:00 [irq/28-mei_me]
+root     19781     2  0 13:49 ?        00:00:00 [kworker/3:2]
+root     19818     2  0 13:49 ?        00:00:00 [kworker/0:1]
+chip     20116  3144 83 13:55 ?        01:44:13 zsnes
+root     20121     2  0 13:55 ?        00:00:01 [kworker/0:2]
+www-data 20413  2192  0 14:09 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 20414  2192  0 14:09 ?        00:00:00 /usr/sbin/apache2 -k start
+root     20541     1  0 14:09 ?        00:00:00 /usr/sbin/cupsd -f
+root     20719     2  0 14:13 ?        00:00:01 [kworker/u8:1]
+chip     20769  3144  0 14:24 ?        00:00:00 /bin/bash /usr/share/playonlinux
+chip     20785 20769  0 14:24 ?        00:00:24 python /usr/share/playonlinux/py
+chip     20865 20785  0 14:24 ?        00:00:00 /bin/sh -c bash "/home/chip/.Pla
+chip     20866 20865  0 14:24 ?        00:00:00 bash /home/chip/.PlayOnLinux/sho
+chip     20960 20866  0 14:24 ?        00:00:07 EXCEL.EXE                       
+chip     20961 20960  0 14:24 ?        00:00:00 bash /home/chip/.PlayOnLinux/sho
+chip     20962 20960  0 14:24 ?        00:00:00 bash /home/chip/.PlayOnLinux/sho
+chip     20963 20961  0 14:24 ?        00:00:00 grep -v menubuilder --line-buffe
+chip     20964 20961  0 14:24 ?        00:00:00 tee -a /home/chip/.PlayOnLinux//
+chip     20965 20962  0 14:24 ?        00:00:00 tee -a /home/chip/.PlayOnLinux//
+chip     20968     1  0 14:24 ?        00:00:05 /home/chip/.PlayOnLinux/wine/lin
+chip     20974     1  0 14:24 ?        00:00:00 C:\windows\system32\services.exe
+chip     20978     1  0 14:24 ?        00:00:00 C:\windows\system32\winedevice.e
+chip     20986     1  0 14:24 ?        00:00:00 C:\windows\system32\plugplay.exe
+chip     20993     1  0 14:24 ?        00:00:00 C:\windows\system32\explorer.exe
+chip     21007     1  0 14:24 ?        00:00:00 C:\Program Files\Common Files\Mi
+chip     21074     1  0 14:24 ?        00:00:00 C:\windows\system32\rpcss.exe   
+root     21147     2  0 14:48 ?        00:00:00 [kworker/u8:5]
+root     21151     2  0 14:54 ?        00:00:00 [kworker/u8:4]
+root     21155     2  0 15:00 ?        00:00:00 [kworker/u8:0]
+chip     21257  3144  0 15:11 ?        00:00:00 gnome-terminal
+chip     21262 21257  0 15:11 ?        00:00:00 gnome-pty-helper
+chip     21263 21257  0 15:11 pts/4    00:00:00 bash
+root     21329     2  0 15:43 ?        00:00:00 [kworker/u8:2]
+root     21387     2  0 15:52 ?        00:00:00 [kworker/u8:3]
+root     21391     2  0 15:57 ?        00:00:00 [kworker/u8:6]
+chip     21394 21263  0 16:00 pts/4    00:00:00 ps -ef
+chip     23722  3144  0 Dec12 ?        00:40:52 /usr/share/spotify/spotify
+chip     23725 23722  0 Dec12 ?        00:00:00 /usr/share/spotify/spotify --typ
+chip     23739 23722  0 Dec12 ?        00:04:22 /usr/share/spotify/spotify --typ
+chip     23754 23725  0 Dec12 ?        00:16:46 /usr/share/spotify/spotify --typ
+chip     25453     1  0 Dec13 ?        00:00:00 /usr/bin/python /usr/share/syste
+chip@dale ~ $ sudo killall bluetoothd
+[sudo] password for chip: 

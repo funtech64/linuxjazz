@@ -1,0 +1,11 @@
+
+How to Install the Linux Dynamic Update Client on Ubuntu
+
+You will be able to install No-IP.com’s DUC on Ubuntu in just a few minutes with Terminal. Once you have opened up your Terminal window you will need to login as the “root” user. You can become the root user from the command line by entering “sudo -s” followed by the root password on your machine.
+
+    cd /usr/local/src/
+    wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+    tar xf noip-duc-linux.tar.gz
+    cd noip-2.1.9-1/
+    make install
+

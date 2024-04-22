@@ -1,0 +1,24 @@
+sudo apt install minicom -y
+
+sudo minicom -s /etc/minicom/minirc.dfl
+
+sudo chmod 777 /dev/ttyUSB0
+
+Protectli:
+
+Serial
+/dev/ttyUSB0
+115200
+
+
+man minicom:
+COMMAND-LINE
+       -s, --setup
+            Setup.   Root  edits  the  system-wide  defaults   in   /etc/mini‐
+            com/minirc.dfl  with  this  option.  When it is used, minicom does
+            not initialize, but puts you directly into the configuration menu.
+            This  is  very  handy  if minicom refuses to start up because your
+            system has changed, or for the first time  you  run  minicom.  For
+            most systems, reasonable defaults are already compiled in.
+
+Option 

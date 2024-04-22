@@ -1,0 +1,21 @@
+﻿What are the systemctl options to List all failed units
+
+You can use:
+
+
+# 
+systemctl list-units --state=failed 
+
+
+
+
+
+
+to list all failed units.
+
+The parameters for systemctl are documented in the man page systemctl(1).
+
+--cg909
+
+
+http://unix.stackexchange.com/questions/341060/ddg#341061

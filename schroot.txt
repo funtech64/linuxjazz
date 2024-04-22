@@ -1,0 +1,33 @@
+
+sudo apt-get install dchroot
+sudo apt-get install debootstrap
+sudo mkdir VIRTUALBOX
+cd VIRTUALBOX
+ls
+/VIRTUALBOX$ sudo mkdir WINDOWS7
+ls
+cd WINDOWS7
+cd /etc
+sudo apt-get install gksu
+ls
+buildd  chroot.d  default  desktop  minimal  sbuild  schroot.conf  setup.d
+gksu gedit schroot.conf
+
+inside schroot.conf:
+[vivid]
+description=Ubuntu Vivid Vervet :)
+location=/VIRTUALBOX/WINDOWS7
+users=rebecca2
+groups=sbuild
+root-groups=root
+
+------
+sudo debootstrap --variant=buildd --arch amd64 vivid /VIRTUALBOX/WINDOWS7 http://www.gtlib.gatech.edu/pub/ubuntu
+------
+
+
+HAS TO HAVE EXTRA D in build(d)
+Jan 17 - Having trouble getting the chroot to invoke properly. I become root in my directory instead of in the target partition.
+Perhaps the answer is in this old note on dchroot. I will invoke this to see if it works.
+
+

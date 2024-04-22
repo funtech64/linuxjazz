@@ -1,0 +1,9 @@
+Summary For The Very Impatient
+
+On the Lubuntu computer:
+
+  sudo apt-get install ssh openssh-server -y --install-recommends
+
+ssh-localhost
+
+

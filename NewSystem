@@ -1,0 +1,25 @@
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+
+sudo apt-get update
+
+sudo apt-get install spotify-client deluge virtualbox-nonfree filezilla gufw libtorrent-rasterbar-dbg imagemagick-doc autotrace enscript ffmpeg gnuplot grads graphviz hp2xx html2ps libwmf-bin mplayer povray radiance texlive-base-bin transfig ufraw-batch fonts-stix fonts-mathjax-extras libjs-mathjax-doc python-apsw-doc python-markdown-doc ttf-bitstream-vera python-pyqt5-dbg python-paste python-webob-doc-y
+
+
+
+
+
+
+
+deluge Suggested packages:
+	libtorrent-rasterbar-dbg
+
+calibre Suggested packages:
+  imagemagick-doc autotrace enscript ffmpeg gnuplot grads graphviz hp2xx
+  html2ps libwmf-bin mplayer povray radiance texlive-base-bin transfig
+  ufraw-batch fonts-stix fonts-mathjax-extras libjs-mathjax-doc
+  python-apsw-doc python-markdown-doc ttf-bitstream-vera python-pyqt5-dbg
+  python-paste python-webob-doc
+

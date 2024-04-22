@@ -1,0 +1,3 @@
+mount -t <Filetype> <SOURCE> <DESTINATION>
+
+root@proxmox:~# mount -t ext4 /dev/sdd1 /media/backup

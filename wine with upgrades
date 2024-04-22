@@ -1,0 +1,7 @@
+sudo apt-get install wine
+
+sudo apt-get install gnome-exe-thumbnailer kde-runtime ttf-mscorefonts-installer xsltproc -y
+
+sudo apt-get install dbtoepub docbook-xsl-doc-html docbook-xsl-doc-pdf docbook-xsl-doc-text -y
+
+

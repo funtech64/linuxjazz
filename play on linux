@@ -1,0 +1,29 @@
+https://www.playonlinux.com/en/download.html
+
+sudo wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -
+
+sudo wget http://deb.playonlinux.com/playonlinux_trusty.list -O /etc/apt/sources.list.d/playonlinux.list
+
+sudo apt-get update
+
+sudo apt-get install winbind scrot python-crypto-dbg python-crypto-doc bind9 bind9utils ctdb ldb-tools ntp smbldap-tools heimdal-clients libnss-winbind libpam-winbind xterm wine -y --install-recommends
+
+sudo apt-get install playonlinux -y --install-recommends
+
+
+
+
+-----------------------------------------------------------------
+
+
+Betsy complained that she needed stuff:
+
+sudo apt-get install xterm wine wine32 -y
+
+(Added it to the above)
+
+(stuff didn't work 4/8/17)
+----------------------------------------------
+
+libnss-winbind libpam-winbind
+

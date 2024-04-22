@@ -1,0 +1,42 @@
+service rolled over into systemd
+https://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/how-to-enable-ssh-on-ubuntu-18-04-linux-mint-19-debian-9.html
+
+
+---------------
+Install SSH Server package using apt command.
+--------------
+
+
+sudo apt update
+
+sudo apt install -y openssh-server
+
+The SSH service will start automatically upon the completion of package installation. You can verify the SSH server package installation by running the following command.
+
+systemctl status ssh
+
+.....(not apt... typo by writer)
+
+sudo systemctl enable ssh
+
+.....(missed)
+
+------------------
+Enable SSH Root Access on Ubuntu / Linux Mint / Debian
+--------------------
+
+By default, root login over SSH is not allowed on Ubuntu / Linux Mint / Debian. But, you can enable root login by editing the SSH configuration file.
+
+Edit the sshd_config file.
+
+sudo nano /etc/ssh/sshd_config
+
+Set the PermitRootLogin to Yes
+
+PermitRootLogin Yes
+
+Restart the SSH service.
+
+sudo systemctl restart ssh
+
+Now you should be able to login directly as the root via ssh.

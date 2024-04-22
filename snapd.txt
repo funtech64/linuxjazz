@@ -1,0 +1,26 @@
+snapd 
+systemctl run snapd.service
+systemctl enable snapd.service
+sudo snap install hello-world
+sudo snap install spotify
+OTHERS.... snapcraft.io
+remmina
+RetroArch
+chromium
+skype
+firefox
+nextcloud or nextcloud-client
+terminus
+aws-cli or dotctl or google-cloud-sdk
+amazon-ssm-agent ??
+DOSBox-X
+kubelet
+plexinc
+(udemy) apolitech
+opera
+wavebox
+microsoft-powershell
+eclipse
+notepadqq
+!!redisdesktopManager
+

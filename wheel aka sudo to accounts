@@ -1,0 +1,4 @@
+4. On all Linux distributions that belongs to the RHEL family, only users in the wheel system group can run a command with sudo. So, next, add the new user tecmint to the wheel group using the usermod command. Here, the -a flag means to append user to a supplementary group and -G specifies the group.
+
+# usermod -aG wheel <user>
+

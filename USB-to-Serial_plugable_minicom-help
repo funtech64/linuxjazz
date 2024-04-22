@@ -1,0 +1,7 @@
+Background
+
+minicom is a serial communication program that connects to devices through a GNU/Linux PC's serial ports. If run by calling its name without any additional arguments, it uses whatever settings have been saved for its defaults in /etc/minicom/minirc.dfl. For those using Windows, PuTTY is a viable application to make such connections between a Windows PC and one of our EMAC devices. More information about PuTTY can be found at http://wiki.emacinc.com/wiki/PuTTY.
+
+Please note that while PuTTY will work, it is missing a number of features relative to a real Linux terminal. In particular, a number of keystroke shortcuts will not work with PuTTY, and not all output will be displayed correctly in PuTTY (although it does manage to display most output correctly). For serious work with Linux, a real Linux terminal (such as minicom, described here) is strongly recommended.
+
+https://wiki.emacinc.com/wiki/Getting_Started_With_Minicom

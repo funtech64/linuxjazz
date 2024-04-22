@@ -1,0 +1,30 @@
+Thanks for providing that! It appears you have an encrypted directory. This can be worked around by doing either of the following:
+
+The first option, and is what we would recommend, is simply to create a new user account on your computer that does not have an encrypted home directory, and migrate your data over to that new account and reinstall the PIA application.
+
+The second option, which is not directly supported by PIA and should be used at your own discretion, is to create a new directory outside your home directory for the PIA application to live, and move your current installation there.
+
+*Note: Please change yourusername to your actual username in the examples below*
+
+
+Step 1. Create a folder outside of the home directory that your user account can write to.
+
+In Terminal type the following:
+
+cd /
+
+sudo mkdir pia
+
+sudo chown yourusername:yourusername pia
+
+Step 2. Move the PIA files to new directory
+
+sudo mv /home/yourusername/.pia_manager /pia/.pia_manager
+
+Step 3. Create symbolic link between the new and old folder.
+
+ln -s /pia/.pia_manager /home/yourusername/.pia_manager
+
+Now reboot and PIA should connect. Does it work this time round or are you shown the same issue? Please let us know. With regards to your other linux system, can you provide more details? Are you using our app with it as well, or openVPN settings within your network manager? I await your reply and thank you for your patience while we help sort this out!
+
+

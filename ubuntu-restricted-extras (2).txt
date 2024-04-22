@@ -1,0 +1,5 @@
+
+$ sudo apt-get install ubuntu-restricted-extras flashplugin-installer gstreamer0.10-fluendo-mp3 gstreamer1.0-fluendo-mp3 chromium-codecs-ffmpeg-extra oxideqt-codecs-extra libavcodec-extra
+
+Also possible
+x-ttcidfont-conf ttf-xfree86-nonfree xfs

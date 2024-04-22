@@ -1,0 +1,23 @@
+4/27 - proxmox turnkey container worked without needing this.
+
+https://tecadmin.net/install-django-on-ubuntu/
+
+vmlab-django project....
+--------------------------------
+
+python3-pip
+
+django django-admin
+
+apache3
+
+cd /var/www
+
+python-django python3-django
+
+django-admin startproject django_app
+
+cd django_app
+python3 manage.py migrate
+
+

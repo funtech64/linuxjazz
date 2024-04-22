@@ -1,0 +1,10 @@
+You can actually execute .bundle file and start the installation:
+
+1. In your Linux OS, go to terminal. (In Ubuntu, terminal is under Applications -> Accessories).
+2. Run the following command:
+sudo sh [vmware file name].bundle
+Remeber to replace [vmware file name] with the actual file name that you downloaded.
+3. You will be prompted to enter root (authentication) password.
+4. You should now see something similar to this “Extracting VMware Installer…done.”
+5. Continue the installation with the GUI Window.
+6. After installation, you can start using VMWare. (In Ubuntu, the icons are under Applications -> System Tools)

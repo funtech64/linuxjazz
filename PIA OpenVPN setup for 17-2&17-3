@@ -1,0 +1,111 @@
+https://www.youtube.com/watch?v=w1mNMX07KM4&feature=youtu.be
+
+#  apt-get install network-manager-openvpn network-manager network-manager-gnome network-manager-openvpn-gnome
+
+(reboot)
+
+#  nano /etc/NetworkManager/NetworkManager.conf
+#  mkdir ~/PIA
+#  cd PIA
+#  wget http://www.privateinternetaccess.com/openvpn/openvpn.zip
+# unzip openvpn.zip
+
+                       !!! sudo cp !!!! THIS SH** IS NOT AT ALL IN THE WEBSITE
+$ sudo cp ca.rsa.2048.crt /etc/openvpn
+$ sudo cp crl.rsa.2048.pem /etc/openvpn
+
+$ ls /etc/openvpn/ -altr
+
+
+Import the PIA OpenVPN config file
+=============================================
+- Right click the Network Manager on the menu bar
+    - and click "Edit Connections..."
+    - then click "Add"
+    - choose "Import a saved VPN configuration..." for the connection type from the drop down menu
+    - then click "Create..."
+    - double click to go into "OpenVPN-setup-PIA" folder
+    - choose which server you would like to setup and connect to
+    - then click "Open"
+    - Remove only the ":1198" from the "Gateway:" ( if present ) as only the domain name should be in this box
+    - for the "User name:" type in your "p1234567" username
+    - for the "Password:" type in the password that goes with your "p-xxxxx" username
+
+!!!!!!!!!!!!This part has to be done each time and I mess up!!!!!!!!!!!!!!!!
+    - Then click "Advanced..."
+    - Check "Use custom gateway port:" and set it to "1198"
+
+////NONE OF THIS CAN BE DEFAULT!!!
+    - Click on the "Security" tab
+    - Set the "Cipher:" to "AES-128-CBC"
+    - Set the "HMAC Authentication:" to "SHA-1"
+
+    - Click "OK"
+    - Click "Save"
+Reboot the computer now! (optional but recommended )
+
+!!!!Pop sudo apt-get update, if the cipher isn't working than no data passes when VPN is engaged!!!
+
+Now connect to the VPN
+=============================================
+- Now Left click the Network Manager on the menu bar
+    - click "VPN Connections"
+    - click Ex. "Mexico" {This will be the name of the server you chose to setup}
+    - wait for it to connect
+    
+- Test by opening your Internet browser and going to...
+    https://www.privateinternetaccess.com/pages/whats-my-ip/
+    https://ipleak.net/
+    
+
+Videos...
+...showing the following steps being done in each Linux distribution
+=============================================
+    - Linux Mint 17.2 "Rafaela" - MATE (64-bit)
+        - linuxmint-17.2-mate-64bit.iso
+        - http://youtu.be/de7G0Dl1a5c
+
+    - Linux Mint 17.2 "Rafaela" - Cinnamon (64-bit)
+        - linuxmint-17.2-cinnamon-64bit.iso
+        - http://youtu.be/w1mNMX07KM4
+
+    - Linux Mint 17.1 "Rebecca" - Cinnamon (64-bit)
+        - linuxmint-17.1-cinnamon-64bit.iso
+        - (video to come)
+
+    - Linux Mint 17 "Qiana" - Xfce (64-bit)
+        - linuxmint-17-xfce-dvd-64bit.iso
+        - http://youtu.be/p_fJ2yPDjog
+
+    - Ubuntu 15.04 "Vivid Vervet" (64-bit)
+        - ubuntu-15.04-desktop-amd64.iso
+        - http://youtu.be/xkvePC4spxw
+
+    - Ubuntu 14.04.2 LTS (Trusty Tahr) (64-bit)
+        - ubuntu-14.04.2-desktop-amd64.iso
+        - http://youtu.be/_FFWhvhNeUk
+
+    - Ubuntu 12.04.5 LTS "Precise Pangolin" (64-bit)
+        - ubuntu-12.04.5-desktop-amd64.iso
+        - http://youtu.be/zj1SoSImaxo
+
+    - elementary OS (64-bit)
+        - elementaryos-freya-amd64.20150411.iso
+        - http://youtu.be/I7XN0xNQazI
+
+    - Lubuntu 15.04 Vivid Vervet (64-bit)
+        - https://youtu.be/g6SQ7_JJD_s
+
+    - Kali Linux Version 1.1.0a (64-bit)
+        - [sudo not needed as Kali runs root default]
+        - http://youtu.be/rS1DR_XjMVI
+
+    - CrunchBang Plus Plus (64-bit)
+        - cbpp-1.0-amd64-20150428.iso
+        - http://youtu.be/l2iXykirRUk
+
+    - CrunchBang 11 (32-bit)
+        - (video to come)
+
+Enjoy!
+Enjoy!

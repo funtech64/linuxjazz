@@ -1,0 +1,7 @@
+sudo apt-get install wireshark --install-recommends
+
+enable promiscous mode in ifconfig
+
+
+
+

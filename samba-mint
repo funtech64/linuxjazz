@@ -1,0 +1,18 @@
+1)
+
+sudo apt-get install libsmbclient libwbclient0 python-dnspython python-samba python3-smbc samba samba-common samba-common-bin samba-dsdb-modules samba-libs samba-vfs-modules smbclient
+
+??? OR
+
+udo apt-get install samba --install-recommends
+
+
+2)
+
+sudo chmod 777 /var/log/samba/log.%m
+
+
+
+NOTES - Samba Print is https://forums.linuxmint.com/viewtopic.php?t=224391
+
+

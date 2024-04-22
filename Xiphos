@@ -1,0 +1,172 @@
+CONCLUSION - Xiphos is dead!!!! Simply install BibleTime
+Installing wine than E-Sword is a breeze.
+
+
+
+
+
+Welcome to Xiphos.
+
+There are no Bibles installed. In order to initialize, Xiphos needs at least one Bible module. To facilitate this, the Module Manager has been opened so that you may install one or more Bibles, either from a local module set (cdrom, flash drive) or over the network from CrossWire Bible Society. Please refer to these step-by-step instructions, and to the general module manager overview that has also been opened.
+
+For local install:
+- In Module Sources: Add/Remove, add a new local folder name where modules can be found.
+  (This is where folders exist named mods.d and modules.)
+- In Module Sources: Choose, click the "Local" button, and select your folder from the pulldown.
+
+For network install from CrossWire:
+- In Module Sources: Choose, click the "Remote" button and select CrossWire from the pulldown.
+- Click the "Refresh" button at the bottom.
+
+In either case:
+- In Modules: Install/Update, select Bibles and other modules of your preference.
+- Click "Install".
+- Close the Module Manager when you are done.
+
+Warning: If you live in a persecuted country, use with care.
+
+Both this step-by-step instruction dialog and the general introduction dialog may be closed at any time.
+
+Overview of the Module Manager.
+
+This is Xiphos' mechanism to get new and updated content.
+If you have never been here before, please take a moment to look it over.
+
+Modules come from different repositories.  Module Sources: Add/Remove will show you what repositories are currently known.
+
+Module Sources: Choose is for deciding from where modules should come, that is, from which repository Xiphos should obtain them, as well as where they should be placed on your system. Set Install Source and Install Destination, then click Refresh.
+
+Modules: Install/Update is for selecting and obtaining modules after choosing source and destination.
+
+Modules: Maintenance is for archive and index creation.
+
+See section 5 of our manual for Module Manager detail, or ask for help via Live Chat, or (if no one is responsive in chat) send mail to our users' mailing list.
+
+
+
+
+------
+The Install...
+------
+
+sudo apt-get install xiphos
+[sudo] password for chip: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  libgtkhtml-4.0-0 libgtkhtml-4.0-common libgtkhtml-editor-4.0-0
+  libsword-common libsword9 xiphos-data
+Suggested packages:
+  sword-text
+Recommended packages:
+  sword-frontend
+The following NEW packages will be installed:
+  libgtkhtml-4.0-0 libgtkhtml-4.0-common libgtkhtml-editor-4.0-0
+  libsword-common libsword9 xiphos xiphos-data
+0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
+Need to get 5,307 kB of archives.
+After this operation, 12.4 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu/ trusty/main libgtkhtml-4.0-common all 4.6.6-2ubuntu1 [72.7 kB]
+Get:2 http://archive.ubuntu.com/ubuntu/ trusty/main libgtkhtml-4.0-0 amd64 4.6.6-2ubuntu1 [298 kB]
+Get:3 http://archive.ubuntu.com/ubuntu/ trusty/main libgtkhtml-editor-4.0-0 amd64 4.6.6-2ubuntu1 [64.0 kB]
+Get:4 http://archive.ubuntu.com/ubuntu/ trusty/universe libsword-common all 1.6.2+dfsg-6build1 [113 kB]
+Get:5 http://archive.ubuntu.com/ubuntu/ trusty/universe libsword9 amd64 1.6.2+dfsg-6build1 [373 kB]
+Get:6 http://archive.ubuntu.com/ubuntu/ trusty/universe xiphos-data all 3.1.5+dfsg-1build3 [4,021 kB]
+Get:7 http://archive.ubuntu.com/ubuntu/ trusty/universe xiphos amd64 3.1.5+dfsg-1build3 [365 kB]
+Fetched 5,307 kB in 10s (487 kB/s)                                             
+Selecting previously unselected package libgtkhtml-4.0-common.
+(Reading database ... 244517 files and directories currently installed.)
+Preparing to unpack .../libgtkhtml-4.0-common_4.6.6-2ubuntu1_all.deb ...
+Unpacking libgtkhtml-4.0-common (4.6.6-2ubuntu1) ...
+Selecting previously unselected package libgtkhtml-4.0-0.
+Preparing to unpack .../libgtkhtml-4.0-0_4.6.6-2ubuntu1_amd64.deb ...
+Unpacking libgtkhtml-4.0-0 (4.6.6-2ubuntu1) ...
+Selecting previously unselected package libgtkhtml-editor-4.0-0.
+Preparing to unpack .../libgtkhtml-editor-4.0-0_4.6.6-2ubuntu1_amd64.deb ...
+Unpacking libgtkhtml-editor-4.0-0 (4.6.6-2ubuntu1) ...
+Selecting previously unselected package libsword-common.
+Preparing to unpack .../libsword-common_1.6.2+dfsg-6build1_all.deb ...
+Unpacking libsword-common (1.6.2+dfsg-6build1) ...
+Selecting previously unselected package libsword9.
+Preparing to unpack .../libsword9_1.6.2+dfsg-6build1_amd64.deb ...
+Unpacking libsword9 (1.6.2+dfsg-6build1) ...
+Selecting previously unselected package xiphos-data.
+Preparing to unpack .../xiphos-data_3.1.5+dfsg-1build3_all.deb ...
+Unpacking xiphos-data (3.1.5+dfsg-1build3) ...
+Selecting previously unselected package xiphos.
+Preparing to unpack .../xiphos_3.1.5+dfsg-1build3_amd64.deb ...
+Unpacking xiphos (3.1.5+dfsg-1build3) ...
+Processing triggers for gnome-menus (3.10.1-0ubuntu2) ...
+Processing triggers for desktop-file-utils (0.22-1ubuntu1) ...
+Processing triggers for mime-support (3.54ubuntu1.1) ...
+Processing triggers for hicolor-icon-theme (0.13-1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up libgtkhtml-4.0-common (4.6.6-2ubuntu1) ...
+Setting up libgtkhtml-4.0-0 (4.6.6-2ubuntu1) ...
+Setting up libgtkhtml-editor-4.0-0 (4.6.6-2ubuntu1) ...
+Setting up libsword-common (1.6.2+dfsg-6build1) ...
+Setting up libsword9 (1.6.2+dfsg-6build1) ...
+Setting up xiphos-data (3.1.5+dfsg-1build3) ...
+Setting up xiphos (3.1.5+dfsg-1build3) ...
+Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+chip@dale ~ $ sudo apt-get install sword-text sword-frontend
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Package sword-frontend is a virtual package provided by:
+  xiphos-dbg 3.1.5+dfsg-1build3
+  xiphos 3.1.5+dfsg-1build3
+  bibletime 2.9.2-1
+You should explicitly select one to install.
+
+Package sword-text is a virtual package provided by:
+  sword-text-wlc 1.3-0ubuntu1
+  sword-text-web 1.4-3
+  sword-text-tr 1.2-0ubuntu2
+  sword-text-swahili 1.1-0ubuntu1
+  sword-text-sparv 1.6-1
+  sword-text-kjv 2.5-1
+  sword-text-gerlut1545 1.2-0ubuntu2
+  sword-text-dutsvv 1.4-0ubuntu1
+  sword-text-arasvd 1.1-0ubuntu2
+You should explicitly select one to install.
+
+E: Package 'sword-text' has no installation candidate
+E: Package 'sword-frontend' has no installation candidate
+chip@dale ~ $ gconf-editor
+The program 'gconf-editor' is currently not installed. You can install it by typing:
+sudo apt-get install gconf-editor
+chip@dale ~ $ sudo apt-get install gconf-editor
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  gconf-defaults-service
+The following NEW packages will be installed:
+  gconf-defaults-service gconf-editor
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 967 kB of archives.
+After this operation, 3,963 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu/ trusty/universe gconf-defaults-service amd64 3.2.6-0ubuntu2 [12.2 kB]
+Get:2 http://archive.ubuntu.com/ubuntu/ trusty/universe gconf-editor amd64 3.0.1-2ubuntu1 [955 kB]
+Fetched 967 kB in 1s (579 kB/s)       
+Selecting previously unselected package gconf-defaults-service.
+(Reading database ... 244918 files and directories currently installed.)
+Preparing to unpack .../gconf-defaults-service_3.2.6-0ubuntu2_amd64.deb ...
+Unpacking gconf-defaults-service (3.2.6-0ubuntu2) ...
+Selecting previously unselected package gconf-editor.
+Preparing to unpack .../gconf-editor_3.0.1-2ubuntu1_amd64.deb ...
+Unpacking gconf-editor (3.0.1-2ubuntu1) ...
+Processing triggers for gnome-menus (3.10.1-0ubuntu2) ...
+Processing triggers for desktop-file-utils (0.22-1ubuntu1) ...
+Processing triggers for mime-support (3.54ubuntu1.1) ...
+Processing triggers for hicolor-icon-theme (0.13-1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Processing triggers for gconf2 (3.2.6-0ubuntu2) ...
+Setting up gconf-defaults-service (3.2.6-0ubuntu2) ...
+Setting up gconf-editor (3.0.1-2ubuntu1) ...
+
+

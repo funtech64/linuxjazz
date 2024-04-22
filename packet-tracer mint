@@ -1,0 +1,12 @@
+~/Downloads $ sudo mv CiscoPacket.tar.gz /usr/bin
+$ cd /usr/bin
+$ chmod +x CiscoPacket.tar.gz
+
+
+
+///STUCK HERE..
+
+$ tar xzf CiscoPacket.tar.gz - extracts but does not execulte...
+$ ./CiscoPacket.tar.gz
+./CiscoPacket.tar.gz: 1: ./CiscoPacket.tar.gz: Syntax error: "(" unexpected
+

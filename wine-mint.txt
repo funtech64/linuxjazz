@@ -1,0 +1,16 @@
+sudo apt-get intall wine -y
+
+sudo apt-get install dosbox:any ttf-mscorefonts-installer fonts-horai-umefont fonts-unfonts-core winbind winetricks libcapi20-3 libosmesa6 unixodbc wine-gecko2.21 wine-mono0.0.8 -y
+
+/// Balked at the following so I skipped as they're all 32 bit (wine):
+
+libgif4:i386 libosmesa6:i386 libp11-kit-gnome-keyring:i386 p11-kit-modules:i386 unixodbc:i386 wine-gecko2.21:i386 wine-mono0.0.8:i386 liblcms2-utils:i386 opencl-icd opencl-icd:i386 
+
+
+
+
+sudo apt-get install playonlinux p7zip-rar scrot  editra
+
+//// Said yes to Geko
+
+

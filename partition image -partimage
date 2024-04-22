@@ -1,0 +1,30 @@
+NO JUNK AND WORKS GREAT!!
+
+sudo apt-get install partimage
+
+THe problem is that it needs to recognize the partition in order to decide to copy it. No understanding the partition type and it lists -unknown- you're done!!
+
+
+What Worked!!!!
+
+
+$ sudo dd if=/dev/sdg5 of=/acer.img
+
+
+
+
+
+
+Likewise, partitions can be restored from these backup copies:
+
+# dd if=/srv/boot.img of=/dev/sda1
+
+or:
+
+# bunzip2 -dc /srv/boot2.img.bz2 | dd of=/dev/sda1
+
+If you wanted to duplicate an existing drive to another, you would obtain a drive of the same (or larger) size. Assuming the drive to copy is /dev/sda and the destination drive is /dev/sdb, first use fdisk to recreate the appropriately-sized partitions, then use dd to do the actual cloning:
+
+# sfdisk -d /dev/sda | sfdisk /dev/sdb
+
+# fdisk -l /dev/sda; fdisk -l /dev/sdb

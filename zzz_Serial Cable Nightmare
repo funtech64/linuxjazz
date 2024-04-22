@@ -1,0 +1,202 @@
+*** See notes in Linux journal page 44.
+
+chip@dale ~ $ dmesg | grep tty
+[    0.000000] console [tty0] enabled
+[82721.598922] usb 2-1.1: pl2303 converter now attached to ttyUSB0
+chip@dale ~ $ setserial -g dev/ttyUSB0
+The program 'setserial' is currently not installed. You can install it by typing:
+sudo apt-get install setserial
+chip@dale ~ $ sudo apt-get install setserial
+[sudo] password for chip: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  setserial
+0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.
+Need to get 37.7 kB of archives.
+After this operation, 144 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu/ trusty/main setserial amd64 2.17-48 [37.7 kB]
+Fetched 37.7 kB in 0s (92.1 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package setserial.
+(Reading database ... 234657 files and directories currently installed.)
+Preparing to unpack .../setserial_2.17-48_amd64.deb ...
+Unpacking setserial (2.17-48) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Processing triggers for ureadahead (0.100.0-16) ...
+Setting up setserial (2.17-48) ...
+removing the old setserial entry in the rcn.d directories
+Update complete.
+Saving state of known serial devices... backing up /var/lib/setserial/autoserial.conf done.
+Processing triggers for ureadahead (0.100.0-16) ...
+chip@dale ~ $ setserial -g dev/ttyUSB0
+dev/ttyUSB0: No such file or directory
+chip@dale ~ $ setserial -g /dev/ttyUSB0
+/dev/ttyUSB0: Permission denied
+chip@dale ~ $ sudo apt-get install minicom
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Recommended packages:
+  lrzsz
+The following NEW packages will be installed:
+  minicom
+0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.
+Need to get 230 kB of archives.
+After this operation, 1,053 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu/ trusty/universe minicom amd64 2.7-1 [230 kB]
+Fetched 230 kB in 0s (244 kB/s)  
+Selecting previously unselected package minicom.
+(Reading database ... 234670 files and directories currently installed.)
+Preparing to unpack .../minicom_2.7-1_amd64.deb ...
+Unpacking minicom (2.7-1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up minicom (2.7-1) ...
+chip@dale ~ $ minicom -h
+Usage: minicom [OPTION]... [configuration]
+A terminal program for Linux and other unix-like systems.
+
+  -b, --baudrate         : set baudrate (ignore the value from config)
+  -D, --device           : set device name (ignore the value from config)
+  -s, --setup            : enter setup mode
+  -o, --noinit           : do not initialize modem & lockfiles at startup
+  -m, --metakey          : use meta or alt key for commands
+  -M, --metakey8         : use 8bit meta key for commands
+  -l, --ansi             : literal; assume screen uses non IBM-PC character set
+  -L, --iso              : don't assume screen uses ISO8859
+  -w, --wrap             : Linewrap on
+  -H, --displayhex       : display output in hex
+  -z, --statline         : try to use terminal's status line
+  -7, --7bit             : force 7bit mode
+  -8, --8bit             : force 8bit mode
+  -c, --color=on/off     : ANSI style color usage on or off
+  -a, --attrib=on/off    : use reverse or highlight attributes on or off
+  -t, --term=TERM        : override TERM environment variable
+  -S, --script=SCRIPT    : run SCRIPT at startup
+  -d, --dial=ENTRY       : dial ENTRY from the dialing directory
+  -p, --ptty=TTYP        : connect to pseudo terminal
+  -C, --capturefile=FILE : start capturing to FILE
+  -F, --statlinefmt      : format of status line
+  -R, --remotecharset    : character set of communication partner
+  -v, --version          : output version information and exit
+  -h, --help             : show help
+  configuration          : configuration file to use
+
+These options can also be specified in the MINICOM environment variable.
+This variable is currently unset.
+The configuration directory for the access file and the configurations
+is compiled to /etc/minicom.
+
+Report bugs to <minicom-devel@lists.alioth.debian.org>.
+chip@dale ~ $ minicom -p ttyUSB0
+minicom: argument to -p must be a pty
+chip@dale ~ $ sudo lsusb -v -s 2-1.1:p12303
+chip@dale ~ $ sudo lsusb -h
+Usage: lsusb [options]...
+List USB devices
+  -v, --verbose
+      Increase verbosity (show descriptors)
+  -s [[bus]:][devnum]
+      Show only devices with specified device and/or
+      bus numbers (in decimal)
+  -d vendor:[product]
+      Show only devices with the specified vendor and
+      product ID numbers (in hexadecimal)
+  -D device
+      Selects which device lsusb will examine
+  -t, --tree
+      Dump the physical USB device hierarchy as a tree
+  -V, --version
+      Show version of program
+  -h, --help
+      Show usage and help
+
+
+///So I give up and just type the command that the website has, not that this gives me any settings or config help to connect putty through the damn cable....
+
+
+chip@dale ~ $ sudo lsusb -v -s 2:2
+
+Bus 002 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub
+Device Descriptor:
+  bLength                18
+  bDescriptorType         1
+  bcdUSB               2.00
+  bDeviceClass            9 Hub
+  bDeviceSubClass         0 Unused
+  bDeviceProtocol         1 Single TT
+  bMaxPacketSize0        64
+  idVendor           0x8087 Intel Corp.
+  idProduct          0x0024 Integrated Rate Matching Hub
+  bcdDevice            0.00
+  iManufacturer           0 
+  iProduct                0 
+  iSerial                 0 
+  bNumConfigurations      1
+  Configuration Descriptor:
+    bLength                 9
+    bDescriptorType         2
+    wTotalLength           25
+    bNumInterfaces          1
+    bConfigurationValue     1
+    iConfiguration          0 
+    bmAttributes         0xe0
+      Self Powered
+      Remote Wakeup
+    MaxPower                0mA
+    Interface Descriptor:
+      bLength                 9
+      bDescriptorType         4
+      bInterfaceNumber        0
+      bAlternateSetting       0
+      bNumEndpoints           1
+      bInterfaceClass         9 Hub
+      bInterfaceSubClass      0 Unused
+      bInterfaceProtocol      0 Full speed (or root) hub
+      iInterface              0 
+      Endpoint Descriptor:
+        bLength                 7
+        bDescriptorType         5
+        bEndpointAddress     0x81  EP 1 IN
+        bmAttributes            3
+          Transfer Type            Interrupt
+          Synch Type               None
+          Usage Type               Data
+        wMaxPacketSize     0x0002  1x 2 bytes
+        bInterval              12
+Hub Descriptor:
+  bLength              11
+  bDescriptorType      41
+  nNbrPorts             8
+  wHubCharacteristic 0x0009
+    Per-port power switching
+    Per-port overcurrent protection
+    TT think time 8 FS bits
+  bPwrOn2PwrGood       50 * 2 milli seconds
+  bHubContrCurrent      0 milli Ampere
+  DeviceRemovable    0x00 0x00
+  PortPwrCtrlMask    0xff 0xff
+ Hub Port Status:
+   Port 1: 0000.0103 power enable connect
+   Port 2: 0000.0503 highspeed power enable connect
+   Port 3: 0000.0100 power
+   Port 4: 0000.0503 highspeed power enable connect
+   Port 5: 0000.0100 power
+   Port 6: 0000.0100 power
+   Port 7: 0000.0100 power
+   Port 8: 0000.0100 power
+Device Qualifier (for other device speed):
+  bLength                10
+  bDescriptorType         6
+  bcdUSB               2.00
+  bDeviceClass            9 Hub
+  bDeviceSubClass         0 Unused
+  bDeviceProtocol         0 Full speed (or root) hub
+  bMaxPacketSize0        64
+  bNumConfigurations      1
+Device Status:     0x0001
+  Self Powered
+
+
+

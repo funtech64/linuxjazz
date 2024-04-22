@@ -1,0 +1,15 @@
+https://raspberrypi.stackexchange.com/questions/47126/raspbian-root-default-password#47129
+
+HUGE ARTICLE AND TONS OF CRAP.. below summarizes the cluster and it's fix...
+
+
+So, you have two choices here but they both require you take the card out of the pi and access the second partition from another system (that can read/write ext4 partitions).
+
+    Restore sudoers. If you have a reference image this is easy, you can just put it back the way it was by replacing it. Otherwise it is the more complicated option since you must know what you are doing (and your track record with sudoers is not so good...).
+
+    Edit /etc/passwd and remove that x as described above, put the card back in, log in as root, create a password. Of course, you'll still need to fix sudoers, but trial and error will be made easier since if you are really root, you will always be able to access it.
+
+If you don't have a system that can access ext4 filesystems (a Debian "live CD" is a good choice here), then you're stuck. You'll have to reflash the card and start again.
+
+type root
+type passwd

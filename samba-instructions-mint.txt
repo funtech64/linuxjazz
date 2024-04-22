@@ -1,0 +1,252 @@
+Written by:	
+pwoody82 	Score: 13
+votes: 16
+Format: Article
+ Linux Mint 17 Windows network setup
+
+Setting up windows user access to linux system using Samba.
+
+Getting access to shared files on a Linux system from Windows and accessing shared Windows files from Linux turns out to be two different problems. Samba works for Windows user access to Linux but not for Linux users accessing files on Windows systems. First, samba.
+
+Samba is installed by default in Mint 17, but in case it is not installed, do the following:
+
+    Select Menu>software manager and enter your password when prompted.
+    In the Software Manager dialog, enter ‘samba’ into the search field and press ‘enter’.
+    Locate samba in the list of apps and double click it. When the samba page appears, look at the blue bar below the title and see if it says ‘installed’ or ‘not installed’. If it is installed, you are done, if not:
+    Click on the ‘install’ button in the blue bar and install samba.
+
+Once samba is installed, you need to install ‘system-config-samba’. Follow the procedure you used to install samba, but search for ‘system-config-samba’ instead. Installing this will cause a menu item named ‘samba’ to be placed in the applications menu (Menu>applications scroll the right column). Open the application, click on Preferences>Samba Users>add user. In the Create New Samba User dialog, ignore the Unix Username, enter a name for the Windows user to use to access the Linux system. Select a password that the named user must enter to access files shared on the Linux system and confirm the password by retyping it. You should also open the server settings dialog in preferences and check to be sure that the workgroup name is correct for the workgroup you are connecting into. If incorrect, change it here. (On your Windows system go Start>Network Places>View Network Connections. Locate the network icon, and pick up the workgroup name.)
+
+Once you have set up the samba username and password for the windows user, you must share those Linux files and folders you want the Windows user to have access to. You can only share things that are yours so if you attempt to share a system file or something belonging to someone else, Linux will not permit it. To share a file or folder, locate the file or folder by clicking ‘files’ in the panel and then locating the file or folder in the ‘home’ tree. Once you can see the file or folder, right click it and select ‘Sharing Options’ from the drop down menu. In the sharing dialog box, click share this (file or folder) and, if you wish, you can permit others to create and delete files and also allow guest access to the data.
+
+Once you have shared your files and folders, go to your Windows system, select Start>My network Places. You will see a list of everything that the Windows system sees on the network, its name and location. Double clicking one of the items you shared on the Linux system will cause the Linux system to prompt for the name and password you assigned for the windows user to use. When Name and password are correct, Windows will open a window showing the selected file or folder. You can go back to the Windows shared list, and open anything else you shared on the Linux system.
+
+A second way of doing the same process is thru the use of the terminal. Open terminal 
+and proceed. 
+
+Samba is installed by default in Mint 17, but in case it is not installed, these two commands should do it.
+
+        sudo apt-get update
+        sudo apt-get install samba
+
+The update command ensures that Samba is up to date prior to the install. Next set 
+up a password for your user-name (in terminal command use ‘id’ to see who you are). 
+
+        sudo smbpasswd -a 
+
+My experience was that the user had to exist in order to create a password
+for him. Note: In Linux Mint the beginner’s guide the author created a password
+for a user named camalas and I could not get the password to take for that id, 
+but using my own id it took. Next, you are going to modify the /etc/samba/smb.conf
+file, so it is suggested that you copy the file to your user area for a possible
+restore incase the file gets damaged. Don’t forget cap letters count in Linux.
+
+        sudo cp –a /etc/samba/smb.conf ~/Documents/smb.conf
+
+Once the backup conf file is done (check to see it’s there) issue the command to 
+edit the smb.conf file. The default workgroup for Linux is WORKGROUP, so if your 
+workgroup is different, you will need to find the Workgroup = WORKGROUP command in 
+the config file (near the top) and reset that to the correct name. Then go to the 
+end of the file and enter the commands listed. To open smb.config enter:
+
+        sudo gedit smb.conf
+
+That will open the file for edit. Check the workgroup and then at the end of the 
+file enter the following commands single spaced with one space before and after 
+each ‘=’ equal sign.
+
+path = /home//
+available = yes
+valid users = 
+read only = no
+browseable = yes
+public = yes
+writable = yes
+
+Save the modified file.
+
+Accessing winbox files from linux. So far I have been unable to set Linux up so 
+that you set up the connection from Linux to the Windows system network on a 
+permanent basis, but on a one time basis, this seems to work fine.
+
+    On your Windows system go Start>Network Places>View Network Connections. Locate the workgroup icon, right click it, and choose status>support. From the support dialog, write down the IP address.
+    On your linux system, Click on Files in the panel, click on home in the menu, click on file in the menu bar, and choose connect to server from the dropdown. This should open the 'connect to server dialog'.
+    In the Connect to Server dialog, change Type to Windows Share. Enter the IP address obtained in step 1 into server. Enter your Windows user name into User Name, your Windows password into password, and click connect. On my system, Domain Name fills itself in.
+
+For me, these three steps bring up a window entitled ‘Windows shares on xx.x.x.x’, where the x’s are the IP address from step 1. If it fails, go back and check your Windows user name and password. This window is a typical Linux window like you get when opening the file system but containing a list of the files and folders the system sees at that IP address. Since I have two Windows systems on this network and the user names and passwords are different, any folder name suffixed by a $ sign is on the Windows system with a different user name and password and requires a different user name and password.
+
+On one occasion, I was able to open any folder without a $ suffix and view the contents of the folder. On another, Linux hung for several seconds, failed to open the folder, and then displayed a dialog entitled ‘Unknown File Type’ that I could not get around. However, locating the folder name under 'network' in the left column of the window, right clicking the folder, and unmounting it seemed to solve the problem because clicking the folder again caused it to open properly.
+
+In Windows if you click Start>My Network Places you get a list of everything shared on the network and where it is shared. If you choose a file or folder name (on the system you are connecting to from Linux) and place it in the ‘share’ area of the Connect to Server Dialog before you click connect, then just that file or folder will be opened.
+
+This took me a long time to put together, shure hope it helps you.
+Tags: Windows network, Network setup
+Created: 2 years ago.
+Last edited: 2 years ago.
+Reviewed: 2 years ago.
+Read 0 times.
+
+Comments
+5 days ago 	
+
+NumOpen	
+	Is it possible to have an automatic synchro between SAMBA users database and Unix users list ? Or is it possible for SAMBA to use directly Unix users list instead of SAMBA users database ? So, we do not need to create SAMBA user. 	 
+7 months ago 	
+
+Banzai_Beagle	
+	Thanks. Any thought of updating this for 18? (I tried this in 18.1 and cannot get it to work - I'm a Linux newb so crawling along...) 	 
+1 year ago 	
+
+Zener	
+	Hello.
+I got much better results by rather upgrading the Samba running in the server box (Alix box with Zeroshell, luckily a new module Samba was made available recently for it): before I had a v.2, now with a v.3.3 all the issues described below have gone,
+BUT this one...
+I still need to downgrade to protocol LANMAN2 at highest on the machine running Mint. With level NT1 the "Conversion error: Incomplete multibyte sequence()" comes back.
+Hope it can help: there are tricky things interfering in this area and the game is to find the correct combination of "client ***" and little known parameters in smb.conf (care of implicit ones). Just play :-/ 	 
+1 year ago 	
+
+Zener	
+	I got it confirmed, for instance here (in French):
+https://forum.ubuntu-fr.org/viewtopic.php?id=1557201&p=2
+
+The workgroup name "WORKGROUP" is mandatory and this is not acceptable.
+
+Trying to downgrade Samba now to fallback the bug... 	 
+1 year ago 	
+
+Zener	
+	(continued)
+My workgroup has a custom name, say MYOWNGROUP.
+I configured samba with: name resolve order = host wins bcast lmhosts
+
+$ smbtree -d3
+lp_load_ex: refreshing parameters
+Initialising global parameters
+rlimit_max: increasing rlimit_max (1024) to minimum Windows limit (16384)
+params.c:pm_process() - Processing configuration file "/etc/samba/smb.conf"
+Processing section "[global]"
+added interface eth0 ip=192.168.666.40 bcast=192.168.666.255 netmask=255.255.255.0
+Enter Zener's password:
+tdb(/var/cache/samba/gencache.tdb): tdb_open_ex: could not open file /var/cache/samba/gencache.tdb: Permission non accordée
+name_resolve_bcast: Attempting broadcast lookup for name MYOWNGROUP<0x1d>
+Got a positive name query response from 192.168.666.11 ( 192.168.666.1 )
+Connecting to 192.168.666.1 at port 445
+Connecting to 192.168.666.1 at port 139
+convert_string_talloc: Conversion error: Incomplete multibyte sequence()
+Conversion error: Incomplete multibyte sequence()
+Connecting to 192.168.666.1 at port 445
+Connecting to 192.168.666.1 at port 139
+convert_string_talloc: Conversion error: Incomplete multibyte sequence()
+Conversion error: Incomplete multibyte sequence()
+
+!!! Oooop's, and it started with bcast, ignoring the wins !
+
+Now is I restore the original workgroup name:
+
+$ smbtree -d3
+lp_load_ex: refreshing parameters
+Initialising global parameters
+rlimit_max: increasing rlimit_max (1024) to minimum Windows limit (16384)
+params.c:pm_process() - Processing configuration file "/etc/samba/smb.conf"
+Processing section "[global]"
+added interface eth0 ip=192.168.666.40 bcast=192.168.666.255 netmask=255.255.255.0
+Enter Zener's password:
+tdb(/var/cache/samba/gencache.tdb): tdb_open_ex: could not open file /var/cache/samba/gencache.tdb: Permission non accordée
+name_resolve_bcast: Attempting broadcast lookup for name WORKGROUPS<0x1d>
+samba_tevent: EPOLL_CTL_DEL EBADF for fde[0x7fd2fcdbc9a0] mpx_fde[(nil)] fd[7] - disabling
+resolve_lmhosts: Attempting lmhosts lookup for name WORKGROUPS<0x1d>
+resolve_lmhosts: Attempting lmhosts lookup for name WORKGROUPS<0x1d>
+resolve_wins: using WINS server 192.168.666.1 and tag '*'
+Negative name query response, rcode 0x03: The name requested does not exist.
+name_resolve_bcast: Attempting broadcast lookup for name WORKGROUPS<0x1b>
+samba_tevent: EPOLL_CTL_DEL EBADF for fde[0x7fd2fcdbd170] mpx_fde[(nil)] fd[7] - disabling
+resolve_lmhosts: Attempting lmhosts lookup for name WORKGROUPS<0x1b>
+resolve_lmhosts: Attempting lmhosts lookup for name WORKGROUPS<0x1b>
+name_resolve_bcast: Attempting broadcast lookup for name __MSBROWSE__<0x1>
+Got a positive name query response from 192.168.666.11 ( 192.168.666.1 )
+samba_tevent: EPOLL_CTL_DEL EBADF for fde[0x7fd2fcdbc530] mpx_fde[(nil)] fd[7] - disabling
+name_resolve_bcast: Attempting broadcast lookup for name MYOWNGROUP<0x1d>
+Got a positive name query response from 192.168.666.11 ( 192.168.666.1 )
+Connecting to 192.168.666.1 at port 445
+Connecting to 192.168.666.1 at port 139
+convert_string_talloc: Conversion error: Incomplete multibyte sequence()
+Conversion error: Incomplete multibyte sequence()
+Connecting to 192.168.666.1 at port 445
+Connecting to 192.168.666.1 at port 139
+convert_string_talloc: Conversion error: Incomplete multibyte sequence()
+Conversion error: Incomplete multibyte sequence()
+
+Failing too but at least it tried !
+
+Then I tried WORKGROUP (9 characters) => same result,
+then MYOWNGROU => same result !
+
+I think that it means:
+- that the workgroup is truncated to 9 characters somewhere inside,
+- and there is a "WORKGROUP" hardcoded somewhere, since truncating WORKGROUPS works and truncating MYOWNGROUP does not.
+
+Then what is the final error ? still a mystery. Maybe related to the garbache characters around __MSBROWSE__ ? 	 
+1 year ago 	
+
+Zener	
+	Good morning.
+On my LAN I have quite all working fine, only the browsing in Nemo resists. I think I found part of the cause:
+* My BrowseMaster + DNS + WINS server is a Linux Box (Alix + Zeroshell),
+and the LAN has multiple NAS, PC/Windows and this PC/Mint, all pure clients.
+All expose 1 share in public/read-only mode.
+* All the machines are visible and their shares accessible, including the PC/Mint's from the PC/Windows.
+* From the PC/Mint the others are visible from shell (nmblookup) and it is even possible to connect to the known share of another PC from Nemo.
+* But the Windows Network does not even show the workgroup, and I got more details with 'smbtree -d3'. In next post for readability... 	 
+2 years ago 	
+
+dwpbike	
+	tanks, TomLiotta, nemo is the ticket. 	 
+2 years ago 	
+
+jahid_0903014	
+	nice tutorial.... 	 
+2 years ago 	
+
+TomLiotta	
+	Best part for me was "the ‘Unknown File Type’ that I could not get around" comment. That's a huge irritation. But "...locating the folder name under 'network' in the left column of the window, right clicking the folder, and unmounting it..." does indeed seem to solve the problem for me. 	 
+2 years ago 	
+
+zman58	
+	Wait, Wait...
+Adding system-config-samba looks like one way to accomplish the fileshare, **but** there is a much more simple way. You don't need to add anything. I have done this many times and it has worked flawlessly for me--even for very large files of 20GB and larger.
+
+You can share any user directory you wish by using Nemo, the file browser provided by default in Linux Mint. Rt-Click the directory of choice and select Properties. Then take a close look at the "Sharing" tab.
+- Select "Share this Folder"
+
+This will let you access the folder from another system as a SMB share. Before you can do this you will need a samba password. So create one by going to the command line and typing
+$ sudo smbpasswd -a user
+...where user is your user name on the Linux system.
+...Now you can go to a Windows or OS X, or another Linux machine and access the share on your Linux system. Use the credentials of your Linux username and the smb password you provided when you ran the command above.
+
+You can always change your samba password on the Linux system by going to the command prompt and simply entering:
+$ smbpasswd
+..it will prompt you for the old password then prompt you twice for the new password.
+
+Going back to the share Properties you can select guest access, such that you don't need to have an account to view the share. Anyone can then browser to the SMB share on the Linux box to read files. This presents a very open share.
+
+Revisiting the share Properties again, you can also create the share such that you must have an account on the Linux system (and a smb user), but would have read-only access to the share.
+$ sudo adduser shareuser
+$ sudo smbpasswd -a shareuser
+..Now shareuser can access the share you created, BUT will only have read access. Guests with no local smb account entry will not have access at all. This type of share lets you share data with others who have the smb credentials you provide them. You can even create the account such that it has no login permission on the system by using the "--disabled-login" command line option.
+
+--thats all.
+
+
+	 
+2 years ago 	
+
+PaulTab	
+	One needs to add comment prior hitting "Promote" button else comment is lost !
+Great work here especially with comments like " My experience was that the user had to exist in order to create a password
+for him. Note: ...."
+pault
+	 
+2 years ago 	
+
+Hammer459	
+	This seems like a very good start. I would like to see more examples as Samba config is so utterly convoluted. Good job this far 

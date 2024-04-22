@@ -1,0 +1,63 @@
+xserver-xorg-video-qxl
+xserver-xorg-video-qxl-dbg
+easyspice
+
+=============================================================
+https://community.linuxmint.com/tutorial/view/1555
+---------------------------------------------------
+" I started out with a Mint 17.1 Cinnamon 64 bit system, fully updated with the latest components. To this system we perform the following:
+
+Virtualization with virt-manager:
+# apt-get install qemu-system
+# apt-get install qemu-utils
+# apt-get install libvirt-bin
+# apt-get install virt-manager
+
+Installing SPICE for KVM remote and local access to VMs
+# apt-get install python-spice-client-gtk
+# apt-get install virt-viewer"
+
+===================================================================
+jollx@Lydia ~ $ sudo apt-cache search spice
+-----------------------------------------------------
+ 
+libspice-protocol-dev - SPICE protocol headers
+libspice-server-dev - Header files and development documentation for spice-server
+libspice-server1 - Implements the server side of the SPICE protocol
+libspice-server1-dbg - Debugging symbols for libspice-server1
+qemu-kvm - QEMU Full virtualization
+xserver-xorg-video-qxl - X.Org X server -- QXL display driver
+xserver-xorg-video-qxl-dbg - X.Org X server -- QXL display driver (debugging symbols)
+browser-plugin-spice - XPI client for interacting with SPICE servers
+chiark-scripts - chiark system administration scripts
+gir1.2-spice-client-glib-2.0 - GObject for communicating with Spice servers (GObject-Introspection)
+gir1.2-spice-client-gtk-2.0 - GTK2 widget for SPICE clients (GObject-Introspection)
+gir1.2-spice-client-gtk-3.0 - GTK3 widget for SPICE clients (GObject-Introspection)
+gnucap - GNU Circuit Analysis package
+gspiceui - Graphical user interface for gnucap and ngspice
+gwave - waveform viewer eg for spice simulators
+libspice-client-glib-2.0-8 - GObject for communicating with Spice servers (runtime library)
+libspice-client-glib-2.0-dev - GObject for communicating with Spice servers (development files)
+libspice-client-gtk-2.0-4 - GTK2 widget for SPICE clients (runtime library)
+libspice-client-gtk-2.0-dev - GTK2 widget for SPICE clients (development files)
+libspice-client-gtk-3.0-4 - GTK3 widget for SPICE clients (runtime library)
+libspice-client-gtk-3.0-dev - GTK3 widget for SPICE clients (development files)
+nova-spiceproxy - OpenStack Compute - spice html5 proxy
+oregano - tool for schematical capture of electronic circuits
+python-spice-client-gtk - GTK2 widget for SPICE clients (Python binding)
+spice-client-glib-usb-acl-helper - Helper tool to validate usb ACLs
+spice-client-gtk - Simple clients for interacting with SPICE servers
+spice-html5 - Spice Web client which runs entirely within a modern browser
+spice-vdagent - Spice agent for Linux
+xserver-xspice - Xspice X server
+xserver-xspice-lts-utopic - Transitional package for xserver-xspice-lts-utopic
+xserver-xspice-lts-vivid - Transitional package for xserver-xspice-lts-vivid
+xserver-xspice-lts-wily - Transitional package for xserver-xspice-lts-wily
+easyspice - A graphical frontend to the Spice simulator
+ngspice - Spice circuit simulator
+ngspice-doc - Documentation for the NGspice circuit simulator
+tclspice - NGspice library for Tcl
+xserver-xorg-video-qxl-hwe-16.04 - X.Org X server -- QXL display driver
+xserver-xspice-hwe-16.04 - Xspice X server
+xserver-xspice-lts-xenial - Transitional package for xserver-xspice-lts-xenial
+

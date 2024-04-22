@@ -1,0 +1,6 @@
+ssh (tab) and select the keytype..
+
+
+example for a reccomended for a parameter from azure...
+
+ssh-keygen -m PEM -t rsa -b 4096

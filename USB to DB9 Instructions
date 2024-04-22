@@ -1,0 +1,34 @@
+
+How to connect USB Serial Console Cable to Linux
+by Nish Vamadevan on 13/10/2013 @nish
+
+The following guide will walk you through on setting up USB Serial Console Cable on a Linux via command line.
+
+First of all, make sure you have a program called Minicom installed.
+
+I will be using Ubuntu flavored Operating System for demonstration purposes.
+
+apt-get install minicom
+
+Then you need to connect the USB Serial adapter and find out which serial port is it connected to.
+
+dmesg | grep USB
+
+You will see something similar to this output.
+
+[    6.804403] usb 1-1.3: pl2303 converter now attached to ttyUSB0
+
+Make sure you chmod 777 /dev/ttyUSB0 so minicom will allow you to save the config.
+
+Open up minicom by running the command minicom -s and select Serial port setup
+
+Reflect the output you saw from dmesg and set it to the Serial Device by pressing AE > C
+
+A – Serial Device : /dev/ttyUSB0
+E – Bps/Par/Bits : 9600 8N1
+
+Please see the following screenshot for more info.
+
+minicom-config
+
+Then Save setup as dfl then exit.

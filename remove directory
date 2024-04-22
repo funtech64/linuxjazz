@@ -1,0 +1,56 @@
+How do I remove a full directory in Linux?
+
+When attempting to remove a directory using a command such as the rmdir command, you may receive a prompt such as "rmdir: 'dir': Directory not empty" and be unable to delete the directory.
+
+To remove a directory that contains other files or directories, use the following command.
+
+rm -r mydir
+
+In the example above, you would replace "mydir" with the name of the directory you want to delete. For example, if the directory was named "files", you would type rm -r files at the prompt.
+
+Executing the above command would delete all files and directories within the directory named in the command. However, it would also present a prompt for approval to delete each of the files. If you don't want to receive a prompt for each file, use the following command instead.
+
+rm -rf mydir
+
+In the above example, the "mydir" directory, along with all files and directories within that directory, would be deleted with no prompt or message.
+Additional information
+
+    See the rm and rmdir commands for further information about each of these commands and other available switches.
+
+
+        Was this page useful? YesNo
+            Feedback
+            E-mail
+            Share
+            Print
+
+Search
+
+            Recently added pages
+            How to create a page border in Microsoft Word
+            How to create a border around a paragraph or other text in Word
+            How to add, select, and modify the header in Microsoft Word
+            How to add, select, and modify the footer in Microsoft Word
+            How to insert the date and time in Microsoft Word
+            View all recent updates
+            Useful links
+            About Computer Hope
+            Site Map
+            Forum
+            Contact Us
+            How to Help
+            Top 10 pages
+            Follow us
+            Facebook
+
+            Twitter
+
+            Google+
+
+            Pinterest
+
+            YouTube
+
+            RSS
+
+© 2015 Computer Hope Legal Disclaimer - Privacy Statement
