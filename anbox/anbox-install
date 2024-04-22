@@ -1,0 +1,9 @@
+snap install anbox
+
+jollx@tiberias:~$ sudo snap install --edge anbox
+
+https://www.linuxuprising.com/2018/07/anbox-how-to-install-google-play-store.html
+
+https://github.com/geeks-r-us/anbox-playstore-installer
+
+badass!!!!

@@ -1,0 +1,14 @@
+Vi
+Text Editor
+
+Quitting
+1. if inserting/editing hit escape!!
+
+:x 	Exit, saving changes
+:q 	Exit as long as there have been no changes
+ZZ 	Exit and save changes if any have been made
+
+Inserting Text
+i 	insert before cursor
+I 	Insert before line
+a 	Append after cursor 

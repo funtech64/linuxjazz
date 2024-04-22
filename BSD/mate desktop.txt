@@ -1,0 +1,47 @@
+THIS DID WORK BUT NOT EXACTLY A FULL DESTOP. RECCOMEND FURYBSD XFCE...
+
+
+5.3 install desktop
+
+pkg install xorg
+
+pkg update
+
+============================MATE…
+https://m.youtube.com/watch?v=4E-HWT9kiN8
+pkg install mate
+pkg install -y slim slim-themes
+
+Edit .xinitrc, add:
+exec mate-session
+
+-----------skipped-----------
+Edit /user/local/etc/PolicyKit/PolicyKit.conf
+------------------- jumped to 3:20
+
+edit /etc/rc.conf
+slim_enable=YES
+dbus_enable=YES
+
+===========================================
+
+.xinitrc
+                                        
+This configuration file, which should reside in your home directory, tells startx what to run aside from starting the X server and client -- e.g., a desktop environment like KDE, gnome, xfce, etc. Another version of this, which is /usr/local/etc/X11/xinit/xsession , provides the same function, but it is overridden by .xinitrc. The home file should be edited, as editing the other file can break the configuration setting easily.
+If you want to start KDE, you'll have to put this line in it:
+exec startkde
+
+If you want to start XFCE, you'll have to put this line in it:
+exec startxfce
+
+If you want to start Gnome, the line is:
+exec gnome-session
+
+If your .xinitrc has one of these lines in it, it will execute the Desktop Environment when you run startx. Otherwise you'll have to run startx and feed it the Desktop Environment as an argument or run the desktop init script manually.
+Another approach is to alias the desktop script to another command in your shell profile; such as placing
+alias gui='startxfce' 
+
+in your .bash_profile will let you start XFCE by typing in "gui" from the CLI.
+Alternatively, the identical file .xsession will start the window manager from a login manager.
+
+

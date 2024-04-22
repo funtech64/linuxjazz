@@ -1,0 +1,27 @@
+http://opal.com/freebsd/ports/net-mgmt/wifimgr/
+
+Installation
+wifimgr was written for the FreeBSD operating system. It should work on NetBSD and OpenBSD too, but this is not yet tested. It is not designed for users of Linux systems or other operating systems.
+
+On FreeBSD, wifimgr can be installed from the ports system either as a binary package or by compiling the source. To install from binary package, do this:
+
+    # pkg_add -rv wifimgr
+
+To deinstall:
+
+    # pkg_delete wifimgr-*
+
+To install from the port, do this:
+
+    # cd /usr/ports
+    # portsnap extract net-mgmt/wifimgr
+    # cd net-mgmt/wifimgr
+    # make
+    # make install
+
+To deinstall:
+
+    # cd /usr/ports/net-mgmt/wifimgr
+    # make deinstall
+
+Note: After a new port version is submitted to FreeBSD, it will take some days before it is committed and then some more days before the binary packages of that version become available. If the packages are not yet available, you must compile it using the port. Alternatively, you can download the tarball below, and compile and install it manually. 

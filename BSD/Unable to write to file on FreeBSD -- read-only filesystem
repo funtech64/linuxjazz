@@ -1,0 +1,9 @@
+ It's not that the file isn't writable; the filesystem itself is mounted read-only. Use mount to check the mount options and mount -u -o rw <mount_point> to remount the filesystem writable.
+
+--mschuett
+More at Unix & Linux Stack Exchange
+
+----------------------------------
+
+just ran mount /
+

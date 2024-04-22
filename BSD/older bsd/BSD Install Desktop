@@ -1,0 +1,101 @@
+install nano.. than
+
+pkg install xorg
+
+than...
+
+XFCE DESKTOP
+
+pkg install -y xfce
+
+pkg install -y slim slim-themes
+
+nano /etc/rc.conf
+
+add:
+
+  dbus_enable="YES"
+  hald_enable="YES"
+  slim_enable="YES"
+
+than save and exit
+
+nano /home/[user]/.xinitrc
+
+  exec startxfce4
+
+than save and exit
+
+reboot
+
+CINNAMON DESKTOP
+
+pkg install cinnamon
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Proper ~/.xinitrc File
+Jump to: navigation, search
+
+This page is a short version of the original Arch Wiki page. For more information, look there.
+
+It is only for advanced users, who know how to fix broken systems and know their way around the terminal.
+
+
+General Information
+
+The ~/.xinitrc file in your home directory is executed by the command startx. In general, it is used to start your Desktop Environment.
+
+Usually, your Display/Login Managercalls startx, but you can Autostart X at Login - OpenRC & SystemD.
+
+
+~/.xinitrc File
+
+The ~/.xinitrc file is located in your home directory and it is a hidden file. Here is an example of a default ~/.xinitrc file:
+
+#!/bin/sh
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+
+# exec enlightenment_start
+# exec i3
+# exec mate-session
+# exec  xmonad
+# exec startlxqt
+# exec startlxde
+# exec awesome
+# exec bspwm
+# exec gnome-session
+# exec gnome-session --session=gnome-classic
+# exec startkde
+# exec startxfce4
+# exec startfluxbox
+# exec openbox-session
+# exec cinnamon-session
+# exec pekwm
+# exec catwm
+# exec dwm
+# exec startede
+# exec icewm-session
+# exec jwm
+# exec monsterwm
+# exec notion
+# exec startdde       # deepin-session
+
+Remove the # symbol at the beginning of the code line belonging to your Desktop Environment (beginning with # exec) and save the ~/.xinitrc file.
+
+
+Troubleshooting
+
+If you are using the Net Edition of Manjaro or a Community Edition, it can happen that the your ~/.xinitrc file is missing parts or contains wrong code. In this case, your system will show error messages and it will refuse to boot your Desktop Environment. It is even possible that your system is caught in a loop, in which it constantly keeps trying to execute startx.
+
+If this happens, get a tty by pressing CTRL + ALT + F2 (or any other funktion key - try all function keys from F1 to F7). When you have a tty, you can log into your system, Install Display Managers or edit your ~/.xinitrc file using nano or vim (this might has to be installed before you can use it)

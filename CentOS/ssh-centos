@@ -1,0 +1,26 @@
+https://www.rosehosting.com/blog/how-to-configure-and-use-openssh-on-centos-7/
+
+
+For that purpose you can use the following command:
+
+# yum install openssh openssh-server openssh-clients openssl-libs
+
+Once the packages are installed you are ready to connect to the server via SSH. The default configuration file for the sshd daemon is /etc/ssh/sshd_config and most of the settings for the daemon are defined in this file. Before making any changes, it is recommended to make a copy of the original configuration file so if you experience some problem you can revert the changes back the the default.
+
+# cp /etc/ssh/sshd_config /etc/ssh/sshd_config.orig
+
+To view and edit the configuration file you can use a text editor of your choice. We are going to use nano because of its simplicity.
+
+# nano /etc/ssh/sshd_config
+
+The first thing you might like to change is the listening port number. By default, the SSH daemon listens on port 22 and for security reasons you can change the number to something else. Change the line:
+
+Port 22
+
+to
+
+Port 2022
+
+You can use a port number of your choice which is not used by some other service on your CentOS VPS. Once you make the changes you can save and close the file. In order the changes to take effect, you should restart the SSH daemon.
+
+# systemctl restart sshd.service

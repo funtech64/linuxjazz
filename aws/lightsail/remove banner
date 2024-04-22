@@ -1,0 +1,13 @@
+
+cat bitnami_application_password
+
+---LS showed a different one that included the stupid login credential
+
+bitnami_credentials
+
+user
+
+
+sudo /opt/bitnami/apps/drupal/bnconfig --disable_banner 1
+sudo /opt/bitnami/apps/joomla/bnconfig --disable_banner 1
+sudo /opt/bitnami/apps/wordpress/bnconfig --disable_banner 1

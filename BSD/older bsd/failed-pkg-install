@@ -1,0 +1,22 @@
+pkg install or pkg update I'm getting the following error:
+
+pkg: Repository FreeBSD load error: access repo file(/var/db/pkg/repo-FreeBSD.sqlite) failed: No such file or directory
+pkg: http://pkg.FreeBSD.org/FreeBSD:11:amd64/quarterly/meta.txz: No address record
+repository FreeBSD has no meta file, using default settings
+pkg: http://pkg.FreeBSD.org/FreeBSD:11:amd64/quarterly/packagesite.txz: No address record
+Unable to update repository FreeBSD
+Error updating repositories!
+
+
+ANSWER
+
+host pkg.freebsd.org
+
+Yes, and ping pkg.freebsd.org will tell you if connectivity works.
+
+SOLUTION - 
+bsdconfig
+network settings
+remove 127 loopback and point dns to gateway.
+
+

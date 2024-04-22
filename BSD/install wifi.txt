@@ -1,0 +1,5 @@
+# ifconfig wlan0 create wlandev ath0
+
+
+than run bsdconfig!! 😁
+

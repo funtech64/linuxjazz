@@ -1,0 +1,39 @@
+https://raspberrypi.stackexchange.com/questions/32717/how-to-enable-sound-on-hdmi
+
+There's another setting in your /boot/config.txt that affects sound: hdmi_group
+
+If you want sound over HDMI, config.txt should have both:
+
+hdmi_group=1
+
+hdmi_drive=2
+
+You need them both set because hdmi_group=1 tells the kernel we are using CEA mode (for TV's, has sound) instead of DMT mode(for monitors, no sound) and hdmi_drive=2 tells the kernel to use HDMI if available. (HDMI mode has sound, DVI does not.)
+
+If that doesn't work, verify that your snd-bcm2835 module being is loaded on boot (/etc/modules) and not blacklisted...
+
+======================
+BCM shows up in retropie but really nowhere else...
+Found the following in suport via retropie instead:
+
+snd-bcm2835
+
+If that doesn't work, verify that your snd-bcm2835 module being is loaded on boot (/etc/modules) and not blacklisted...
+
+https://retropie.org.uk/docs/Sound-Issues/
+
+Once you've made the change, save the file, restart your Raspberry Pi, and move onto Step 2.
+Using the built-in HDMI Audio
+
+If you have a standard RPi and want to send audio over the HDMI connector then it should just work. In some instances though, you will need to manually modify the raspberry pi boot config file (sudo nano/boot/config.txt) and ADD the following lines to those already there:
+
+# forces HDMI mode
+hdmi_drive=2            
+
+# Setting hdmi_force_hotplug to 1 pretends that the HDMI hotplug signal is asserted, so it appears that a HDMI display is attached. In other words, HDMI output mode will be used, even if no HDMI monitor is detected.
+hdmi_force_hotplug=1            
+
+
+# Pretends all audio formats are supported by display, allowing passthrough of DTS/AC even when not reported as supported.
+# May not be needed for all HDMI devices
+hdmi_force_edid_audio=1  
