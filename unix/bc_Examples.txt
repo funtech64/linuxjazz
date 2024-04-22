@@ -1,0 +1,238 @@
+
+Informatica, Oracle, Netezza, Unix, Hadoop Tutorials and Examples
+
+bc Command Examples in Unix / Linux tutorials
+
+
+Arithmetic operations are the most common in any kind of programming language. Unix or linux operating system provides the bc command and expr command for doing arithmetic calculations. You can use these commands in bash or shell script also for evaluating arithmetic expressions. 
+
+Here we will see only about the bc command. The bc command evaluates expressions similar to the c programming language. The bc command supports the following features. 
+Arithmetic operators
+Increment and decrement operators
+Assignment operators
+Comparision or Relational Operators
+Logical or Boolean operators
+Math Functions
+Conditional statements
+Iterative statements
+Functions
+Arithmetic operator Examples:
+
+The following example shows how to use various arithmetic operators. The examples are pretty straight forward. So, I will provide explanation only when required. In most of the examples the echo statment is used to provide the expressions to the bc command.
+
+1. Finding Sum of Two expressions 
+
+> echo "2+5" | bc
+7
+
+2. Difference of Two numbers
+
+> echo "10-4" | bc
+6
+
+3. Multiplying two numbers
+
+> echo "3*8" | bc
+24
+
+4. Dividing two numbers 
+
+When you divide two numbers, the bc command Ignores the decimal part and returns only the integral part as the output. See the below examples
+
+> echo "2/3" | bc
+0
+
+> echo "5/4" | bc
+1
+
+Use the scale function to specify the number of decimal digits that the bc command should return.
+
+> echo "scale=2;2/3" | bc
+.66
+
+5. Finding the remainder using modulus operator
+
+> echo "6%4" | bc
+2
+
+6. Using exponent operator
+
+> echo "10^2" | bc
+100
+
+Here the expression is evaluated as 10 to the power of 2.
+
+Assignment Operator Examples: 
+
+Assignment operators are used to assign a value to the variable. The following example shows how to use the assignment operators:
+
+Assigns 10 to the variable and prints the value on the terminal.
+> echo "var=10;var" | bc
+
+Increment the value of the variable by 5
+> echo "var=10; var+=5;var | bc
+15
+
+The lists of assignment operators supported are: 
+var = value   : Assign the value to the variable
+var += value : similar to var = var + value
+var -= value  : similar to var = var - value
+var *= value  : similar to var = var * value
+var /= value   : similar to var = var / value
+var ^= value  : similar to var = var ^ value
+var %= value : similar to var = var % value
+Increment Operator Examples: 
+
+There are two kinds of increment operators. They are pre increment and post increment operators. 
+
+++var : Pre increment operator. The variable is incremented first and then the result of the variable is used.
+var++ : Post increment operator. The result of the variable is used first and then the variable is incremented.
+> echo "var=5;++var" | bc
+6
+
+> echo "var=5;var++" | bc
+5
+
+Here, in the second example the value of var is printed first and then it is incremented. See the below example, to see the complete incremental effect.
+
+> echo "var=5;var++;var" | bc
+5
+6
+
+Decrement Operator Examples: 
+
+Similar to the increment operators, there are two types of decrement operators.
+--var : Pre decrement operator. The variable is decremented first and then the result of the variable is used.
+var-- : Post decrement operator. The result of the variable is used first and then the variable is decremented.
+> echo "var=5;--var"| bc
+4
+> echo "var=5;var--"| bc
+5
+
+Relational Operators Examples: 
+
+Relational operators are used to compare two numbers. If the comparison is true, then it returns 1. Otherwise (false), it returns 0. The relational operators are mostly used in conditional statements like if. The list of relational operators supported in bc command are shown below: 
+
+expr1 < expr2 : Result is 1 if expr1 is strictly less than expr2.
+expr1 <= expr2 : Result is 1 if expr1 is less than or equal to expr2.
+expr1 > expr2 : Result is 1 if expr1 is strictly greater than expr2.
+expr1 >= expr2 : Result is 1 if expr1 is greater than or equal to expr2.
+expr1 == expr2 : Result is 1 if expr1 is equal to expr2.
+expr1 != expr2 : Result is 1 if expr1 is not equal to expr2.
+
+> echo "10 > 5" | bc
+1
+
+> echo "1 == 2" | bc
+0
+
+Logical Operator Examples:
+
+Logical operators are also mostly used in conditional statements. The result of the logical operators is either 1 (True) or 0 (false) ! expr : Result is 1 if expr is 0. 
+
+expr && expr : Result is 1 if both expressions are non-zero.
+expr || expr : Result is 1 if either expression is non-zero.
+
+> echo "4 && 10" | bc
+1
+> echo "0 || 0" | bc
+0
+
+Math Functions: 
+
+The built-in math functions supported are: 
+
+s (x) : The sine of x, x is in radians.
+c (x) : The cosine of x, x is in radians.
+a (x) : The arctangent of x, arctangent returns radians.
+l (x) : The natural logarithm of x.
+e (x) : The exponential function of raising e to the value x.
+j (n,x): The bessel function of integer order n of x.
+sqrt(x): Square root of the number x.
+
+In addition to the math functions, the following functions are also supported. 
+
+length(x) : returns the number of digits in x
+read() : Reads the number from the standard input.
+
+Conditional Statement Examples: 
+
+Conditional statements are used to take decisions and execute statements based on these decisions. Bc command supports the if condition. The syntax of if statement is
+
+if(condition) { statements} else {statements}
+
+The following example shows show to use the if condition
+
+> echo 'if(1 == 2) print "true" else print "false"' | bc
+false
+
+Iterative Statements:
+
+Bc command supports the for and while loop for doing iterations. The syntax of for and while loop are shown below:
+
+for (assignment; condition; increment) {
+statements
+}
+
+while (condition) {
+statements
+}
+
+The following examples prints numbers from 1 to 10 using the for and while loops
+
+> echo "for(i=1;i<=10;i++) {i;}" | bc
+> echo "i=1; while(i<=10) { i; i+=1}" | bc
+
+Functions: 
+
+A function is a code block which executes logically related functionality and returns a value. The syntax of creating a function is
+
+define function-name(comma separated parameters list) {
+statements
+return statement
+}
+
+So far we have provided the arithmetic expressions to the bc command by using the echo statement. We can write these arithmetic expressions in a file and then execute those statements by providing the filename to the bc command. This is shown below:
+
+> cat arth_expr.dat
+2+5;
+var = 10*3
+var
+print var
+define sum(a,b) {
+return a+b
+}
+sum(3,5)
+quit
+
+Now see how to execute these statements:
+
+> bc arth_expr.dat
+bc 1.06
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'.
+7
+30
+30
+8
+
+Be default the bc command prints the welcome message(version, copyright message. You can suppress this welcome message by using the -q option with bc command
+
+> bc -q arth_expr.dat
+
+Important Points: 
+
+Bc command treats the semicolon (;) or newline as the statement separator.
+To group statements use the curly braces. Use with functions, if statement, for and while loops.
+If only an expression is specified as a statement, then bc command evaluates the expression and prints the result on the standard output.
+If an assignment operator is found. Bc command assigns the value to the variable and do not print the value on the terminal.
+A function should be defined before calling it. Always the function definition should appear first before the calling statements.
+If a standalone variable is found as a statement, bc command prints the value of the variable. You can also Use the print statement for displaying the list of values on the terminal.
+ 
+No comments:
+Post a Comment
+‹
+›
+Home
+View web version

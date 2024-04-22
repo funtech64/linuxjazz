@@ -1,0 +1,44 @@
+cd /usr/bin
+
+yaourt -G dolphin-emu-git
+
+chown xxxx:xxxx dolphin-emu-git
+
+cd dolphin-emu-git
+
+makepkg -si
+
+==================================================
+ARCH INSTRUCTIONS - dolphin-emu-git blocked by shit so ran above after chat rooms instead...
+----------------------------------------------------
+https://www.youtube.com/watch?v=CMA1l4bGxog
+--mentions how to create yaourt and another as faster and easier deployment package options.
+
+
+sudo pacman -S --needed base-devel git (wasn't needed)
+
+sudo nano /etc/makepkg.conf
+ctrl W
+search term: MAKEFLAGS
+#MAKEFLAGS="-j$(nproc)"
+ctrl O
+ctrl x
+
+cd /
+mkdir /Programs
+
+copy link
+
+git clone (URL)
+
+chown xxxx:xxxx (target folder)
+
+cd (target folder)
+
+
+-----check-file/optional-----------
+less PKGBUILD
+-----------------------------------
+
+makepkg -si
+

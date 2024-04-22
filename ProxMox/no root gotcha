@@ -1,0 +1,33 @@
+https://www.pcworld.com/article/3203405/linux/all-about-debian-9-stretch-the-linux-distro-that-just-works.html
+
+Gotchas
+
+When playing around with Debian 9 on my own, a small gotcha caught me off-guard. After I installed Debian from the GNOME live ISO, my user account suddenly didn't have sudo access. That means if I wanted to update or install my system, I couldn't do it. On top of this, the root password I chose during installation didn't allow me to log in as root.
+
+Instead, I had to boot to the live ISO image and chroot into the installed system to make changes. To do this you need an installed system first. Once the system is installed, reboot into the live image again and open up a terminal. Then mount your installed system to a folder with the following commands:
+
+sudo mkdir /system
+sudo mount /dev/<root partition of installed system> /system
+
+If you don't know what your root partition is, it's typically /dev/sda1 if you used the defaults during installation. You can always look up the partitions on your system by with the command lsblk.
+
+From there, you need to chroot into the system with the command:
+
+sudo chroot /system
+
+Once you're chrooted in, you can execute commands as root. To give your user sudo access, use the usermod command:
+
+usermod -a -G sudo <username>
+
+You can also alter the root password with the passwd command.
+
+Once you're all done, type exit to exit the chroot environment and exit again to close the terminal window. Then simply reboot, and you'll have sudo access as usual.
+The takeaway
+
+Debian 9 is a great operating system to use. Purists love it because it doesn't come with any proprietary software. Other users love it for its stability. If you've used an Ubuntu flavor like UbuntuGNOME or Kubuntu before, using Debian will be pretty easy for you.
+
+However, don't expect the latest and greatest software to hit Debian repositories. Debian is built for those who crave a system that will "just work" instead of being on the bleeding edge.
+
+You can download Debian 9 "Stretch" from debian.org. If you need help with installation, Debian has an online manual that you can also download as a PDF.
+To comment on this article and other PCWorld content, visit our Facebook page or our Twitter feed.
+

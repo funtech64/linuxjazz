@@ -1,0 +1,7 @@
+
+yaourt -G dolphin-emu-git
+
+*yaourt -S was tried but blocked...
+
+MORE - see aur.txt
+

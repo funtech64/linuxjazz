@@ -1,0 +1,11 @@
+https://www.ostechnix.com/how-to-fix-unable-to-lock-database-error-in-arch-linux/
+
+The beauty of Linux distros is sometimes it will the implicitly display the solution along with the error message. It didn’t try harder to find the solution. As you can see in the above output, it says: “..you can remove /var/lib/pacman/db.lck”.
+
+So, I simply deleted the aforementioned file with command:
+
+rm /var/lib/pacman/db.lck
+
+Voila! It worked. I can then able to update, install and remove without any problems.
+
+pacman -Syu

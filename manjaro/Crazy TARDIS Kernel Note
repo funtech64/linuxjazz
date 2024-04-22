@@ -1,0 +1,6 @@
+>>> NOTE, 4.20.17 was the last maintenance release by Greg Kroah-Hartman.
+    
+    It is recommend to move on to linux50-series.
+    Use followed cmd to do that: 'sudo mhwd-kernel -i linux50'
+    
+

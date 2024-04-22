@@ -1,0 +1,1 @@
+e: How to completely uninstall an app ? Correct. pacman -Rsn should never leave files anywhere apart from what the package stores in the users home directory.

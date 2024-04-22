@@ -1,0 +1,24 @@
+https://mariadb.com/kb/en/library/mysql-command-line-client/#mysql-commands
+
+https://mariadb.com/kb/en/library/drop-database/
+
+mysql --user=root --password=n0k1mcH!
+
+SHOW DATABASES;
+
+DROP DATABASE zabbix;
+
+create database zabbix;
+grant all privileges on zabbix.* to zabbix@'localhost' identified by 'root@zabbix';
+grant all privileges on zabbix.* to zabbix@'%' identified by 'root@zabbix';
+flush privileges;
+
+exit
+
+?????????????????????????????NOT DONE YET
+https://www.zabbix.com/documentation/3.0/manual/installation/install_from_packages/server_installation_with_mysql
+
+# zcat /usr/share/doc/zabbix-server-mysql-3.4.*/create.sql.gz | mysql -uzabbix -p zabbix
+
+!!!!!!!!!!!!!!!
+loook at [root@zabbix ~]# as identified by is not connected for a statement
